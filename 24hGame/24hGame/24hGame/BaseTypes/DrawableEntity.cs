@@ -49,5 +49,5 @@ namespace _24hGame.BaseTypes
                 texture = value;
             }
         }
-    }   
+    }
 }

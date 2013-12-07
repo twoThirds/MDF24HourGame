@@ -31,6 +31,7 @@ namespace _24hGame.Components.Rooms
         }
         public void Draw(GameTime gameTime, Vector2 scroll)
         {
+
         }
     }
 }
