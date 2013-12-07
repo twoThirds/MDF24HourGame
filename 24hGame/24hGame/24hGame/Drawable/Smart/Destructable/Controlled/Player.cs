@@ -11,9 +11,16 @@ using _24hGame.Components.Rooms;
 
 namespace _24hGame.Drawable.Smart.Destructable.Controlled
 {
-	class Player : ControlledEntity
+	public class Player : ControlledEntity
 	{
+
+        public Player() {
+            Position = new Vector2(100, 100);
+            Texture = new TexturedQuad();
+        }
+
         bool qDown, eDown;
+
 		public void Initialize(Game1 game)
 		{
 			Position = new Vector2(100, 100);
@@ -22,18 +29,21 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
             HitPoints = 10;
             qDown = false;
 		}
+
         public void Reset()
         {
             Position = new Vector2(100, 100);
             HitPoints = 10;
         }
 
+
 		public void Draw(GameTime gameTime)
 		{
 			Texture.Draw(Position);
 		}
 
-        //returns wether or not its dead
+        public void Update(){
+        }
 		public bool Update(GameTime gameTime, Room room)
 		{
             bool dead = false;

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace _24hGame.BaseTypes
 {
-    class DestructableEntity : SmartEntity
+    public class DestructableEntity : SmartEntity
     {
         int hitPoints;
         public int HitPoints

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace _24hGame.BaseTypes
 {
-    class DrawableEntity : Entity
+    public class DrawableEntity : Entity
     {
         Vector2 position;
         Vector2 originOffset;
@@ -20,7 +20,17 @@ namespace _24hGame.BaseTypes
             get{return position;}
             set{position = value;}
         }
-
+        public Vector2 Size
+        {
+            get
+            {
+                return size;
+            }
+            set
+            {
+                size = value;
+            }
+        }
         public Vector2 OriginOffset
         {
             get{return originOffset;}
