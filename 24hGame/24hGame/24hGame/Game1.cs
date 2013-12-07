@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using _24hGame.Graphics;
+using _24hGame.GameEngine;
 
 namespace _24hGame
 {
@@ -19,6 +20,7 @@ namespace _24hGame
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Engine engine;
 
         public Matrix View
         {
@@ -64,7 +66,7 @@ namespace _24hGame
             // TODO: Add your initialization logic here
             View = Matrix.CreateLookAt(new Vector3(0, 0, 10), Vector3.Zero, Vector3.Down);
 			Projection = Matrix.CreateOrthographic(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height, 1.0f, 100.0f);
-
+            engine = new Engine();
 			//Projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4, 4.0f / 3.0f, 1, 500);
 
 			TexturedQuad.Initialize(this);
@@ -104,7 +106,7 @@ namespace _24hGame
                 this.Exit();
 
             // TODO: Add your update logic here
-
+            
             base.Update(gameTime);
         }
 
@@ -120,6 +122,7 @@ namespace _24hGame
 			spriteBatch.End();
 
             // TODO: Add your drawing code here
+            engine.RenderWorld(gameTime);
             base.Draw(gameTime);
         }
     }

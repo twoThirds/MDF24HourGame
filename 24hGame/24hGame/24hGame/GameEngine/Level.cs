@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace _24hGame.Engine
+namespace _24hGame.GameEngine
 {
     class Level
     {

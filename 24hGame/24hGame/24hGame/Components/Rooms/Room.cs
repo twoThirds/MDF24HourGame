@@ -16,6 +16,11 @@ namespace _24hGame.Components.Rooms
         List<Projectile> projectiles;
         List<Trap> traps;
 
+        public void Update(GameTime gameTime, Vector2 scroll)
+        {
+            //Move objects
+            //Check for colisions 
+        }
         public void Draw(GameTime gameTime, Vector2 scroll)
         {
         }
