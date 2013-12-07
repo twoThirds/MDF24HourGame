@@ -15,6 +15,7 @@ namespace _24hGame.Components.Rooms
         List<Enemy> enemies;
         List<Projectile> projectiles;
         List<Trap> traps;
+
         public void Load()
         {
             //load room content
@@ -24,7 +25,6 @@ namespace _24hGame.Components.Rooms
         }
         public void Update(GameTime gameTime, Vector2 scroll)
         {
-            //enemies[0].
             //Move objects
             //Check for colisions
         }

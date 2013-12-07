@@ -12,19 +12,17 @@ namespace _24hGame.Drawable.Smart.Destructable.Contrelled
 {
 	public class Player : ControlledEntity
 	{
-		TexturedQuad texture;
-		Vector2 position;
 
 		public void Initialize(Game1 game)
 		{
-			position = new Vector2(100, 100);
-			texture = new TexturedQuad();
-			texture.Texture = game.Content.Load<Texture2D>("derp");
+			Position = new Vector2(100, 100);
+			Texture = new TexturedQuad();
+			Texture.Texture = game.Content.Load<Texture2D>("derp");
 		}
 
 		public void Draw(GameTime gameTime)
 		{
-			texture.Draw(position);
+			Texture.Draw(Position);
 		}
         public void Update(){
         }
@@ -41,7 +39,7 @@ namespace _24hGame.Drawable.Smart.Destructable.Contrelled
 				direction.X += 1;
 
 			//dev
-			position += direction;
+			Position += direction;
 			// /dev
 		}
 	}

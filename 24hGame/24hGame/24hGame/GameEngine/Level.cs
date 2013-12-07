@@ -13,8 +13,7 @@ namespace _24hGame.GameEngine
 {
     public class Level
     {
-        public List<Room> rooms;
-        public Room currentRoom;
+
         public void Serialize<Level>(Level data, string filePath)
         {
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(Level));
@@ -37,27 +36,48 @@ namespace _24hGame.GameEngine
             return data;
         }
 
-        //Takes path to an XML file and loads a level
-        public void Load(String XMLFileName)
+
+        List<Room> rooms;
+        Room currentRoom;
+        Vector2 scroll;
+        Player player;
+
+        public Level()
         {
-            //load each
-            for(int i = 0; i < rooms.Count; i++)
+            rooms = new List<Room>();
+        }
+
+        //Takes path to an XML file and loads a level
+        public void Load(String XMLFileName, Player player)
+        {
+
+            this.player = player;
+            scroll = new Vector2(0, 0);
+            //load each room
+            int i;
+            for(i = 0; i < rooms.Count; i++)
             {
                 rooms[i].Load();
             }
         }
         public void Update(GameTime gameTime)
         {
-
+            //update each room
+            int i;
+            for (i = 0; i < rooms.Count; i++)
+            {
+                rooms[i].Update(gameTime, scroll);
+            }
+            player.Update(gameTime);
         }
-        public void Draw(GameTime gameTime, Player player)
+        public void Draw(GameTime gameTime)
         {
-            Vector2 scroll = new Vector2(0, 0);
             int i;
             for(i = 0; i < rooms.Count; i++)
             {
                 rooms[i].Draw(gameTime, scroll);
             }
+            player.Draw(gameTime);
         }
     }
 }
