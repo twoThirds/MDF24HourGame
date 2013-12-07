@@ -15,7 +15,7 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
         {
             Position = new Vector2(200, 200);
             Texture = new TexturedQuad();
-            Texture.Texture = game.Content.Load<Texture2D>("derp");
+            Texture.Texture = game.Content.Load<Texture2D>(@"Textures\Enemies\walking unarmed\zombie1");
             HitPoints = 10;
             AttackRange = 20;
             Damage = 3;

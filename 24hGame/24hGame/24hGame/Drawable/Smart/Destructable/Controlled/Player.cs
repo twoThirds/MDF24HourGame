@@ -25,7 +25,7 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
 		{
 			Position = new Vector2(100, 100);
 			Texture = new TexturedQuad();
-			Texture.Texture = game.Content.Load<Texture2D>("derp");
+            Texture.Texture = game.Content.Load<Texture2D>(@"Textures\Player\animation upper part of the body\unarmed\unarmed1");
             HitPoints = 10;
             qDown = false;
 		}
@@ -42,8 +42,6 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
 			Texture.Draw(Position);
 		}
 
-        public void Update(){
-        }
 		public bool Update(GameTime gameTime, Room room)
 		{
             bool dead = false;
@@ -65,7 +63,7 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
                 qDown = false;
                 HitPoints -= 2;
             }
-            if (Keyboard.GetState().IsKeyDown(Keys.Q))
+            if (Keyboard.GetState().IsKeyDown(Keys.E))
             {
                 eDown = true;
             }

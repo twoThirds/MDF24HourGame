@@ -18,7 +18,8 @@ namespace _24hGame.Components.Rooms
         List<Projectile> projectiles;
         List<Trap> traps;
         Player player;
-        public List<DrawableEntity> Obstacle { get { return obstacle; } set { obstacle = value; } }
+        bool active;
+        public List<DrawableEntity> Obstacle { get { return obstacles; } set { obstacles = value; } }
         public List<Enemy> Enemies { get { return enemies; } set { enemies = value; } }
         public List<Projectile> Projectiles { get { return projectiles; } set { projectiles = value; } }
         public List<Trap> Traps { get { return traps; } set { traps = value; } }
@@ -50,15 +51,28 @@ namespace _24hGame.Components.Rooms
                 enemies[i].setTarget(player);
             }
         }
+        public void SetDeactive()
+        {
+            this.player = null;
+            int i;
+            for (i = 0; i < enemies.Count; i++)
+            {
+                enemies[i].setTarget(null);
+            }
+        }
         public bool Update(GameTime gameTime, Vector2 scroll)
         {
-            bool gameOver;
+            bool gameOver = false;
             int i;
             for (i = 0; i < enemies.Count; i++)
             {
                 enemies[i].Update(gameTime);
             }
-            gameOver = player.Update(gameTime, this);
+            if(player != null)
+            {
+                gameOver = player.Update(gameTime, this);
+            }
+            
             //Move objects
             //Check for colisions
             return gameOver;
@@ -71,7 +85,10 @@ namespace _24hGame.Components.Rooms
             {
                 enemies[i].Draw(gameTime);
             }
-            player.Draw(gameTime);
+            if (player != null)
+            {
+                player.Draw(gameTime);
+            }
 
         }
         public void Interact()

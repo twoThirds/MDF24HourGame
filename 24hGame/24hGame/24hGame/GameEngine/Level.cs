@@ -24,60 +24,31 @@ namespace _24hGame.GameEngine
         public Level()
         {
             rooms = new List<Room>();
-            currentRoom = new Room();
             player = new Player();
         }
 
-
-        public void createXMLfileTemplate<T>(T data, string filepath){
-            Level lvl = new Level();
-
-            Serialize(data, filepath);
-        }
-
-
-        public void Serialize<T>(T data, string filePath)
-        {           
-            XmlSerializerNamespaces ns = new XmlSerializerNamespaces();
-            ns.Add("", "");
-
-            System.Xml.Serialization.XmlSerializer xmlSerializer =
-            new System.Xml.Serialization.XmlSerializer(data.GetType());
-
-
-            XmlWriterSettings settings = new XmlWriterSettings();
-            settings.Indent = true;    
-            settings.OmitXmlDeclaration = true;
-            settings.Encoding = Encoding.ASCII;
-            using (TextWriter writer = new StreamWriter(filePath))
-            {
-                xmlSerializer.Serialize(writer,data, ns);
-            }
-        }
-
-        public T DeSerilize<T>(T _data, string filePath)
-        {
-            XmlSerializer ser = new XmlSerializer(_data.GetType());
-
-            using (XmlReader reader = XmlReader.Create(filePath))
-            {
-                _data = (T)ser.Deserialize(reader);
-            }
-            return _data;
-        }
 
         //Takes path to an XML file and loads a level
         public void Load(String XMLFileName, Player player, Game1 game)
         {
             this.player = player;
+            player.Initialize(game);
             this.XMLFileName = XMLFileName;
             this.game = game;
             scroll = new Vector2(0, 0);
             //load each room
+            rooms.Add(new Room());
+            int i;
+            for (i = 0; i < rooms.Count; i++)
+            {
+                rooms[i].Load(game);
+            }
+            currentRoom = rooms[0];
+            rooms[0].SetActive(player);
             // comment this line after first time run
-            createXMLfileTemplate(rooms, XMLFileName);
+            //createXMLfileTemplate(rooms, XMLFileName);
             //load stuff
-            DeSerilize(rooms, XMLFileName);
+            //DeSerilize(rooms, XMLFileName);
 
         }
 
@@ -94,7 +65,6 @@ namespace _24hGame.GameEngine
                     Load(XMLFileName, player, game);
                 }
             }
-            player.Update(gameTime);
         }
         public void Draw(GameTime gameTime)
         {
@@ -103,7 +73,45 @@ namespace _24hGame.GameEngine
             {
                 rooms[i].Draw(gameTime, scroll);
             }
-            player.Draw(gameTime);
         }
+
+        public void createXMLfileTemplate<T>(T data, string filepath)
+        {
+            Level lvl = new Level();
+
+            Serialize(data, filepath);
+        }
+
+
+        public void Serialize<T>(T data, string filePath)
+        {
+            XmlSerializerNamespaces ns = new XmlSerializerNamespaces();
+            ns.Add("", "");
+
+            System.Xml.Serialization.XmlSerializer xmlSerializer =
+            new System.Xml.Serialization.XmlSerializer(data.GetType());
+
+
+            XmlWriterSettings settings = new XmlWriterSettings();
+            settings.Indent = true;
+            settings.OmitXmlDeclaration = true;
+            settings.Encoding = Encoding.ASCII;
+            using (TextWriter writer = new StreamWriter(filePath))
+            {
+                xmlSerializer.Serialize(writer, data, ns);
+            }
+        }
+
+        public T DeSerilize<T>(T _data, string filePath)
+        {
+            XmlSerializer ser = new XmlSerializer(_data.GetType());
+
+            using (XmlReader reader = XmlReader.Create(filePath))
+            {
+                _data = (T)ser.Deserialize(reader);
+            }
+            return _data;
+        }
+
     }
 }
