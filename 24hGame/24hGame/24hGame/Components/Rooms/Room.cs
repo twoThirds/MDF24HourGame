@@ -1,6 +1,6 @@
 ﻿using _24hGame.BaseTypes;
 using _24hGame.Drawable;
-using _24hGame.Drawable.Smart.Destructable.Contrelled;
+using _24hGame.Drawable.Smart.Destructable.Controlled;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
