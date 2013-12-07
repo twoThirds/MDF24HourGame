@@ -9,8 +9,11 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using _24hGame.Graphics;
-using _24hGame.Drawable.Smart.Destructable.Controlled;
+<<<<<<< HEAD
+using _24hGame.Drawable.Smart.Destructable.Contrelled;
+=======
 using _24hGame.GameEngine;
+>>>>>>> b977232755a2eafa7a4623689e1c4f315a6f5851
 
 namespace _24hGame
 {
@@ -19,10 +22,10 @@ namespace _24hGame
     /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
+		Player tmpPlayer;
         GraphicsDeviceManager graphics;
-		Texture2D gameGuiBackground;
         SpriteBatch spriteBatch;
-		Engine engine;
+        Engine engine;
 
         public Matrix View
         {
@@ -66,13 +69,14 @@ namespace _24hGame
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-			engine = new Engine(this);
-			//Takes path to an XML file and loads a level
-			engine.Load("placeholder.xml");
-            View = Matrix.CreateLookAt(new Vector3(0, 0, -10), Vector3.Zero, Vector3.Down);
-			Projection = Matrix.CreateOrthographicOffCenter(0, GraphicsDevice.Viewport.Width, -GraphicsDevice.Viewport.Height, 0, 1.0f, 100.0f);
+            View = Matrix.CreateLookAt(new Vector3(0, 0, -10), Vector3.Zero, Vector3.Up);
+			Projection = Matrix.CreateOrthographic(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height, 1.0f, 100.0f);
+            engine = new Engine();
+			//Projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4, 4.0f / 3.0f, 1, 500);
 
 			TexturedQuad.Initialize(this);
+			tmpPlayer = new Player();
+			tmpPlayer.Initialize(this);
             base.Initialize();
         }
 
@@ -84,10 +88,6 @@ namespace _24hGame
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
-			gameGuiBackground = Content.Load<Texture2D>("gameGuiBackground");
-			debugTexturedQuad = new TexturedQuad();
-			debugTexturedQuad.Texture = Content.Load<Texture2D>("derp");
 
             // TODO: use this.Content to load your game content here
         }
@@ -111,12 +111,9 @@ namespace _24hGame
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
-
-			if (Keyboard.GetState().IsKeyDown(Keys.Escape))
-				this.Exit();
-
+			tmpPlayer.Update(gameTime);
             // TODO: Add your update logic here
-			engine.UpdateWorld(gameTime);
+            
             base.Update(gameTime);
         }
 
@@ -127,37 +124,13 @@ namespace _24hGame
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-			// Remove back-face culling, this is not really a great thing to do
-			RasterizerState raster = new RasterizerState();
-			raster.CullMode = CullMode.None;
-			GraphicsDevice.RasterizerState = raster;
-
-			// Render game graphics (NOT Gui here)
-
-			DrawDebugGraphics();
-			// Do not draw anu more game graphics after this point
-
-			// Spritebatch MUST be placed after all other rendering is done, or raster needs to be set again
-			engine.RenderWorld(gameTime);
 			spriteBatch.Begin();
-				spriteBatch.Draw(gameGuiBackground, new Vector2(0, 0), Color.White);
-				// Render GUI AFTER this line
-
-				// Render GUI BEFORE this line
+			//spriteBatch.Draw(tq.Texture, new Rectangle(0, 0, 50, 50), Color.White);
 			spriteBatch.End();
+			tmpPlayer.Draw(gameTime);
+            // TODO: Add your drawing code here
+            engine.RenderWorld(gameTime);
             base.Draw(gameTime);
-        }
-
-		TexturedQuad debugTexturedQuad;
-		Vector2 debugTexturedQuadLocation = new Vector2(100, 50);
-		float debugTexturedQuadRotation = 0;
-		private void DrawDebugGraphics()
-		{
-			debugTexturedQuadLocation.Y += 0.1f;
-			debugTexturedQuad.Draw(debugTexturedQuadLocation);
-			debugTexturedQuad.Draw(new Vector2(0, 0), 0);
-			debugTexturedQuadRotation += 1f;
-			debugTexturedQuad.Draw(new Vector2(0, 50), MathHelper.ToRadians(debugTexturedQuadRotation));
         }
     }
 }
