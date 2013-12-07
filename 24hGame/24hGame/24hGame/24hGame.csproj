@@ -124,7 +124,7 @@
     <Compile Include="Drawable\Smart\Destructable\Controlled\Player.cs" />
     <Compile Include="Drawable\Smart\Destructable\Controlled\Trap.cs" />
     <Compile Include="Drawable\Smart\Destructable\Controlled\Zombie.cs" />
-    <Compile Include="Drawable\Smart\Destructable\VicoryDoor.cs" />
+    <Compile Include="Drawable\Smart\Destructable\VictoryDoor.cs" />
     <Compile Include="Drawable\Smart\SpawnPoint.cs" />
     <Compile Include="Drawable\Smart\TreasureChest.cs" />
     <Compile Include="Drawable\Wall.cs" />
