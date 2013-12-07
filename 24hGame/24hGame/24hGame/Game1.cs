@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using _24hGame.Graphics;
 
 namespace _24hGame
 {
@@ -19,10 +20,37 @@ namespace _24hGame
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        public Matrix View
+        {
+            get;
+            set;
+        }
+
+        public Matrix Projection
+        {
+            get;
+            set;
+        }
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+			graphics.PreferredBackBufferHeight = 600;
+			graphics.PreferredBackBufferWidth = 800;
+        }
+
+        static Game1()
+        {
+            random = new Random();
+        }
+        static Random random;
+        static public Random Random
+        {
+            get
+            {
+                return random;
+            }
         }
 
         /// <summary>
@@ -34,7 +62,12 @@ namespace _24hGame
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            View = Matrix.CreateLookAt(new Vector3(0, 0, 10), Vector3.Zero, Vector3.Down);
+			Projection = Matrix.CreateOrthographic(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height, 1.0f, 100.0f);
 
+			//Projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4, 4.0f / 3.0f, 1, 500);
+
+			TexturedQuad.Initialize(this);
             base.Initialize();
         }
 
@@ -82,9 +115,11 @@ namespace _24hGame
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+			spriteBatch.Begin();
+			//spriteBatch.Draw(tq.Texture, new Rectangle(0, 0, 50, 50), Color.White);
+			spriteBatch.End();
 
             // TODO: Add your drawing code here
-
             base.Draw(gameTime);
         }
     }

@@ -7,5 +7,12 @@ namespace _24hGame.BaseTypes
 {
     class SoundEffect : Entity
     {
+        /// <summary>
+        /// Not yet impemented
+        /// </summary>
+        public void Play()
+        {
+
+        }
     }
 }
