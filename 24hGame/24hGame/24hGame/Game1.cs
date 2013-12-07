@@ -18,6 +18,7 @@ namespace _24hGame
     public class Game1 : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
+		Texture2D gameGuiBackground;
         SpriteBatch spriteBatch;
 
         public Matrix View
@@ -38,7 +39,7 @@ namespace _24hGame
             Content.RootDirectory = "Content";
 			graphics.PreferredBackBufferHeight = 600;
 			graphics.PreferredBackBufferWidth = 800;
-        }
+		}
 
         static Game1()
         {
@@ -60,12 +61,10 @@ namespace _24hGame
         /// and initialize them as well.
         /// </summary>
         protected override void Initialize()
-        {
-            // TODO: Add your initialization logic here
-            View = Matrix.CreateLookAt(new Vector3(0, 0, 10), Vector3.Zero, Vector3.Down);
-			Projection = Matrix.CreateOrthographic(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height, 1.0f, 100.0f);
-
-			//Projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4, 4.0f / 3.0f, 1, 500);
+        {	
+			// TODO: Add your initialization logic here
+            View = Matrix.CreateLookAt(new Vector3(0, 0, -10), Vector3.Zero, Vector3.Down);
+			Projection = Matrix.CreateOrthographicOffCenter(0, GraphicsDevice.Viewport.Width, -GraphicsDevice.Viewport.Height, 0, 1.0f, 100.0f);
 
 			TexturedQuad.Initialize(this);
             base.Initialize();
@@ -79,6 +78,10 @@ namespace _24hGame
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+			gameGuiBackground = Content.Load<Texture2D>("gameGuiBackground");
+			debugTexturedQuad = new TexturedQuad();
+			debugTexturedQuad.Texture = Content.Load<Texture2D>("derp");
 
             // TODO: use this.Content to load your game content here
         }
@@ -103,6 +106,9 @@ namespace _24hGame
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
+			if (Keyboard.GetState().IsKeyDown(Keys.Escape))
+				this.Exit();
+
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -114,13 +120,37 @@ namespace _24hGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
-			spriteBatch.Begin();
-			//spriteBatch.Draw(tq.Texture, new Rectangle(0, 0, 50, 50), Color.White);
-			spriteBatch.End();
+			GraphicsDevice.Clear(Color.CornflowerBlue);
+			// Remove back-face culling, this is not really a great thing to do
+			RasterizerState raster = new RasterizerState();
+			raster.CullMode = CullMode.None;
+			GraphicsDevice.RasterizerState = raster;
 
-            // TODO: Add your drawing code here
+			// Render game graphics (NOT Gui here)
+
+			DrawDebugGraphics();
+			// Do not draw anu more game graphics after this point
+
+			// Spritebatch MUST be placed after all other rendering is done, or raster needs to be set again
+			spriteBatch.Begin();
+				spriteBatch.Draw(gameGuiBackground, new Vector2(0, 0), Color.White);
+				// Render GUI AFTER this line
+
+				// Render GUI BEFORE this line
+			spriteBatch.End();
             base.Draw(gameTime);
         }
+
+		TexturedQuad debugTexturedQuad;
+		Vector2 debugTexturedQuadLocation = new Vector2(100, 50);
+		float debugTexturedQuadRotation = 0;
+		private void DrawDebugGraphics()
+		{
+			debugTexturedQuadLocation.Y += 0.1f;
+			debugTexturedQuad.Draw(debugTexturedQuadLocation);
+			debugTexturedQuad.Draw(new Vector2(0, 0), 0);
+			debugTexturedQuadRotation += 1f;
+			debugTexturedQuad.Draw(new Vector2(0, 50), MathHelper.ToRadians(debugTexturedQuadRotation));
+		}
     }
 }
