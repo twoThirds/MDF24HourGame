@@ -24,7 +24,7 @@ namespace _24hGame.GameEngine
         {
             player.Initialize(game);
             //load a new level
-            level.Load(XMLFileName, player);
+            level.Load(XMLFileName, player, game);
         }
 
         public void UpdateWorld(GameTime gameTime)

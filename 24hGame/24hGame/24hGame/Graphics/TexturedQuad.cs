@@ -46,10 +46,10 @@ namespace _24hGame.Graphics
         {
             // Fill in texture coordinates to display full texture
             // on quad
-            Vector2 textureUpperLeft = new Vector2(0.0f, 0.0f);
-            Vector2 textureUpperRight = new Vector2(1.0f, 0.0f);
-            Vector2 textureLowerLeft = new Vector2(0.0f, 1.0f);
-            Vector2 textureLowerRight = new Vector2(1.0f, 1.0f);
+            Vector2 textureUpperLeft = new Vector2(0.0f, 1.0f);
+            Vector2 textureUpperRight = new Vector2(1.0f, 1.0f);
+            Vector2 textureLowerLeft = new Vector2(0.0f, 0.0f);
+            Vector2 textureLowerRight = new Vector2(1.0f, 0.0f);
 
             // Provide a normal for each vertex
             for (int i = 0; i < Vertices.Length; i++)
@@ -87,7 +87,7 @@ namespace _24hGame.Graphics
 		static Game1 game;
 		static public void Initialize(Game1 game)
         {
-            quad = new Quad(Vector3.Zero, Vector3.Forward, Vector3.Up, 1, 1);
+            quad = new Quad(Vector3.Zero, Vector3.Backward, Vector3.Up, 1, 1);
 
             quadEffect = new BasicEffect(game.GraphicsDevice);
             //quadEffect.EnableDefaultLighting();
@@ -129,6 +129,23 @@ namespace _24hGame.Graphics
 			{
 				quadEffect.Texture = texture;
 				quadEffect.World = Matrix.CreateScale(Texture.Width, Texture.Height, 1) * Matrix.CreateTranslation(new Vector3(location, 0));
+
+				//RasterizerState raster = new RasterizerState(); raster.CullMode = CullMode.None; game.GraphicsDevice.RasterizerState = raster;
+
+				foreach (EffectPass pass in quadEffect.CurrentTechnique.Passes)
+				{
+					pass.Apply();
+					game.GraphicsDevice.DrawUserIndexedPrimitives<VertexPositionNormalTexture>(PrimitiveType.TriangleList, quad.Vertices, 0, 4, quad.Indexes, 0, 2);
+				}
+			}
+		}
+
+		public void Draw(Vector2 location, float radians)
+		{
+			if (texture != null)
+			{
+				quadEffect.Texture = texture;
+				quadEffect.World = Matrix.CreateScale(Texture.Width, Texture.Height, 1) * Matrix.CreateRotationZ(radians) * Matrix.CreateTranslation(new Vector3(location, 0));
 				foreach (EffectPass pass in quadEffect.CurrentTechnique.Passes)
 				{
 					pass.Apply();

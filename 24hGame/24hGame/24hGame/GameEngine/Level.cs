@@ -14,18 +14,20 @@ namespace _24hGame.GameEngine
     public class Level
     {
 
+        List<Room> rooms;
+        Room currentRoom;
+        Vector2 scroll;
+        Player player;
+        String XMLFileName;
+        Game1 game;
 
-
-        public List<Room> rooms;
-        public Room currentRoom;
-        public Vector2 scroll;
-        public Player player;
         public Level()
         {
             rooms = new List<Room>();
             currentRoom = new Room();
             player = new Player();
         }
+
 
         public void createXMLfileTemplate<T>(T data, string filepath){
             Level lvl = new Level();
@@ -53,28 +55,32 @@ namespace _24hGame.GameEngine
             }
         }
 
-        public T DeSerilize<T>(T data, string filePath)
+        public T DeSerilize<T>(T _data, string filePath)
         {
-            XmlSerializer ser = new XmlSerializer(data.GetType());
+            XmlSerializer ser = new XmlSerializer(_data.GetType());
 
             using (XmlReader reader = XmlReader.Create(filePath))
             {
-                data = (T)ser.Deserialize(reader);
+                _data = (T)ser.Deserialize(reader);
             }
-            return data;
+            return _data;
         }
 
         //Takes path to an XML file and loads a level
-        public void Load(String XMLFileName, Player player)
+        public void Load(String XMLFileName, Player player, Game1 game)
         {
+            this.player = player;
+            this.XMLFileName = XMLFileName;
+            this.game = game;
+            scroll = new Vector2(0, 0);
+            //load each room
             // comment this line after first time run
-            createXMLfileTemplate(rooms,XMLFileName);
-            
-   
+            createXMLfileTemplate(rooms, XMLFileName);
             //load stuff
             DeSerilize(rooms, XMLFileName);
 
         }
+
 
         public void Update(GameTime gameTime)
         {
@@ -82,7 +88,11 @@ namespace _24hGame.GameEngine
             int i;
             for (i = 0; i < rooms.Count; i++)
             {
-                rooms[i].Update(gameTime, scroll);
+                if(rooms[i].Update(gameTime, scroll))
+                {
+                    player.Reset();
+                    Load(XMLFileName, player, game);
+                }
             }
             player.Update(gameTime);
         }

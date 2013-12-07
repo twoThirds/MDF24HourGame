@@ -7,5 +7,29 @@ namespace _24hGame.BaseTypes
 {
     public class ControlledEntity : DestructableEntity
     {
+        int attackRange;
+        int damage;
+        public int AttackRange
+        {
+            get
+            {
+                return attackRange;
+            }
+            set
+            {
+                attackRange = value;
+            }
+        }
+        public int Damage
+        {
+            get
+            {
+                return damage;
+            }
+            set
+            {
+                damage = value;
+            }
+        }
     }
 }

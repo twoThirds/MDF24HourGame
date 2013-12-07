@@ -13,25 +13,66 @@ namespace _24hGame.Components.Rooms
 {
     public class Room
     {
-        public List<Entity> roomContent;
-        public List<Enemy> enemies;
-        public List<Projectile> projectiles;
-        public List<Trap> traps;
+        List<DrawableEntity> obstacle;
+        List<Enemy> enemies;
+        List<Projectile> projectiles;
+        List<Trap> traps;
+        Player player;
+        public List<DrawableEntity> Obstacle { get { return obstacle; } set { obstacle = value; } }
+        public List<Enemy> Enemies { get { return enemies; } set { enemies = value; } }
+        public List<Projectile> Projectiles { get { return projectiles; } set { projectiles = value; } }
+        public List<Trap> Traps { get { return traps; } set { traps = value; } }
+        public Player Aplayer { get { return player; } set { player = value; } }
 
-        public void Load()
+        public void Load(Game1 game)
         {
             //load room content
             //walls (Dumb Entity)
             //spawners
             //treasures chests
+            enemies = new List<Enemy>();
+            //This should be moved to spawners
+            enemies.Add(  (Enemy)( new Zombie() )  );
+            int i;
+            for (i = 0; i < enemies.Count; i++)
+            {
+                enemies[i].Load(game);
+            }
+            
         }
-        public void Update(GameTime gameTime, Vector2 scroll)
+        public void SetActive(Player player)
         {
+            this.player = player;
+            int i;
+            for (i = 0; i < enemies.Count; i++)
+            {
+                enemies[i].setTarget(player);
+            }
+        }
+        public bool Update(GameTime gameTime, Vector2 scroll)
+        {
+            bool gameOver;
+            int i;
+            for (i = 0; i < enemies.Count; i++)
+            {
+                enemies[i].Update(gameTime);
+            }
+            gameOver = player.Update(gameTime);
+
             //Move objects
             //Check for colisions
+            return gameOver;
         }
         public void Draw(GameTime gameTime, Vector2 scroll)
         {
+
+            int i;
+            for (i = 0; i < enemies.Count; i++)
+            {
+                enemies[i].Draw(gameTime);
+            }
+            player.Draw(gameTime);
+
         }
     }
 }
