@@ -7,7 +7,7 @@ namespace _24hGame.BaseTypes
 {
     class Entity
     {
-        static public Entity()
+        static Entity()
         {
             random = new Random();
         }
