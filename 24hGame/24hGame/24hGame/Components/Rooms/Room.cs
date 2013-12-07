@@ -1,6 +1,6 @@
 ﻿using _24hGame.BaseTypes;
 using _24hGame.Drawable;
-using _24hGame.Drawable.Smart.Destructable.Contrelled;
+using _24hGame.Drawable.Smart.Destructable.Controlled;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -11,10 +11,11 @@ namespace _24hGame.Components.Rooms
 {
     public class Room
     {
-        List<Entity> roomContent;
+        List<DrawableEntity> obstacle;
         List<Enemy> enemies;
         List<Projectile> projectiles;
         List<Trap> traps;
+        Player player;
 
         public void Load()
         {
@@ -23,13 +24,19 @@ namespace _24hGame.Components.Rooms
             //spawners
             //treasures chests
         }
+        public void SetActive(Player player)
+        {
+            this.player = player;
+        }
         public void Update(GameTime gameTime, Vector2 scroll)
         {
+            player.Update(gameTime);
             //Move objects
             //Check for colisions
         }
         public void Draw(GameTime gameTime, Vector2 scroll)
         {
+            player.Draw(gameTime);
         }
     }
 }

@@ -8,7 +8,7 @@ using _24hGame.Graphics;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace _24hGame.Drawable.Smart.Destructable.Contrelled
+namespace _24hGame.Drawable.Smart.Destructable.Controlled
 {
 	public class Player : ControlledEntity
 	{

@@ -1,5 +1,5 @@
 ﻿using _24hGame.Components.Rooms;
-using _24hGame.Drawable.Smart.Destructable.Contrelled;
+using _24hGame.Drawable.Smart.Destructable.Controlled;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -45,6 +45,7 @@ namespace _24hGame.GameEngine
         public Level()
         {
             rooms = new List<Room>();
+            rooms.Add(new Room());
         }
 
         //Takes path to an XML file and loads a level
@@ -59,6 +60,11 @@ namespace _24hGame.GameEngine
             {
                 rooms[i].Load();
             }
+            this.ChangeRoom(rooms[0]);
+        }
+        public void ChangeRoom(Room newRoom)
+        {
+            newRoom.SetActive(player);
         }
         public void Update(GameTime gameTime)
         {
@@ -68,7 +74,6 @@ namespace _24hGame.GameEngine
             {
                 rooms[i].Update(gameTime, scroll);
             }
-            player.Update(gameTime);
         }
         public void Draw(GameTime gameTime)
         {
@@ -77,7 +82,6 @@ namespace _24hGame.GameEngine
             {
                 rooms[i].Draw(gameTime, scroll);
             }
-            player.Draw(gameTime);
         }
     }
 }
