@@ -6,7 +6,7 @@ using System.Text;
 
 namespace _24hGame.Drawable
 {
-    class Projectile : SmartEntity
+    public class Projectile : SmartEntity
     {
     }
 }

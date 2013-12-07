@@ -12,14 +12,16 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
 {
 	public class Player : ControlledEntity
 	{
-
+        public Player() {
+            Position = new Vector2(100, 100);
+            Texture = new TexturedQuad();
+        }
 		public void Initialize(Game1 game)
 		{
 			Position = new Vector2(100, 100);
 			Texture = new TexturedQuad();
 			Texture.Texture = game.Content.Load<Texture2D>("derp");
 		}
-
 		public void Draw(GameTime gameTime)
 		{
 			Texture.Draw(Position);

@@ -25,7 +25,17 @@ namespace _24hGame.BaseTypes
                 position = value;
             }
         }
-
+        public Vector2 Size
+        {
+            get
+            {
+                return size;
+            }
+            set
+            {
+                size = value;
+            }
+        }
         public Vector2 OriginOffset
         {
             get

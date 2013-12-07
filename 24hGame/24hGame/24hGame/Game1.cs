@@ -69,7 +69,7 @@ namespace _24hGame
 			Projection = Matrix.CreateOrthographic(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height, 1.0f, 100.0f);
 			engine = new Engine(this);
 			//Takes path to an XML file and loads a level
-			engine.Load("placeholder.xml");
+			engine.Load("D:/placeholder.xml");
 			//Projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4, 4.0f / 3.0f, 1, 500);
 
 			TexturedQuad.Initialize(this);

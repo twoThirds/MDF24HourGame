@@ -6,16 +6,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.IO;
+using System.Xml.Serialization;
+using System.Xml;
 namespace _24hGame.Components.Rooms
 {
     public class Room
     {
-        List<DrawableEntity> obstacle;
-        List<Enemy> enemies;
-        List<Projectile> projectiles;
-        List<Trap> traps;
-        Player player;
+        public List<Entity> roomContent;
+        public List<Enemy> enemies;
+        public List<Projectile> projectiles;
+        public List<Trap> traps;
 
         public void Load()
         {
@@ -24,19 +25,13 @@ namespace _24hGame.Components.Rooms
             //spawners
             //treasures chests
         }
-        public void SetActive(Player player)
-        {
-            this.player = player;
-        }
         public void Update(GameTime gameTime, Vector2 scroll)
         {
-            player.Update(gameTime);
             //Move objects
             //Check for colisions
         }
         public void Draw(GameTime gameTime, Vector2 scroll)
         {
-            player.Draw(gameTime);
         }
     }
 }

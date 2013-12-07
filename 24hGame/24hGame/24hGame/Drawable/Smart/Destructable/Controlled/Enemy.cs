@@ -6,7 +6,7 @@ using System.Text;
 
 namespace _24hGame.Drawable.Smart.Destructable.Controlled
 {
-    class Enemy : ControlledEntity
+    public class Enemy : ControlledEntity
     {
     }
 }
