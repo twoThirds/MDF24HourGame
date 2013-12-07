@@ -68,9 +68,13 @@ namespace _24hGame
             // TODO: Add your initialization logic here
 			engine = new Engine(this);
 			//Takes path to an XML file and loads a level
-			engine.Load("placeholder.xml");
+
+			engine.Load("D:/placeholder.xml");
+			//Projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4, 4.0f / 3.0f, 1, 500);
+
             View = Matrix.CreateLookAt(new Vector3(0, 0, -10), Vector3.Zero, Vector3.Down);
 			Projection = Matrix.CreateOrthographicOffCenter(0, GraphicsDevice.Viewport.Width, -GraphicsDevice.Viewport.Height, 0, 1.0f, 100.0f);
+
 
 			TexturedQuad.Initialize(this);
             base.Initialize();

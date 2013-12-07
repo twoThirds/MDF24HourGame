@@ -5,7 +5,7 @@ using System.Text;
 
 namespace _24hGame.BaseTypes
 {
-    class SmartEntity : DrawableEntity
+    public class SmartEntity : DrawableEntity
     {
         float interactDistance;
     }

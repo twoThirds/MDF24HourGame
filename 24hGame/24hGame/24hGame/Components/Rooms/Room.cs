@@ -6,16 +6,23 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.IO;
+using System.Xml.Serialization;
+using System.Xml;
 namespace _24hGame.Components.Rooms
 {
-    class Room
+    public class Room
     {
         List<DrawableEntity> obstacle;
         List<Enemy> enemies;
         List<Projectile> projectiles;
         List<Trap> traps;
         Player player;
+        public List<DrawableEntity> Obstacle { get { return obstacle; } set { obstacle = value; } }
+        public List<Enemy> Enemies { get { return enemies; } set { enemies = value; } }
+        public List<Projectile> Projectiles { get { return projectiles; } set { projectiles = value; } }
+        public List<Trap> Traps { get { return traps; } set { traps = value; } }
+        public Player Aplayer { get { return player; } set { player = value; } }
 
         public void Load(Game1 game)
         {
@@ -51,18 +58,21 @@ namespace _24hGame.Components.Rooms
                 enemies[i].Update(gameTime);
             }
             gameOver = player.Update(gameTime);
+
             //Move objects
             //Check for colisions
             return gameOver;
         }
         public void Draw(GameTime gameTime, Vector2 scroll)
         {
+
             int i;
             for (i = 0; i < enemies.Count; i++)
             {
                 enemies[i].Draw(gameTime);
             }
             player.Draw(gameTime);
+
         }
     }
 }
