@@ -14,6 +14,7 @@ namespace _24hGame.GameEngine
         Room currentRoom;
         Vector2 scroll;
         Player player;
+        String XMLFileName;
 
         public Level()
         {
@@ -24,6 +25,7 @@ namespace _24hGame.GameEngine
         public void Load(String XMLFileName, Player player)
         {
             this.player = player;
+            this.XMLFileName = XMLFileName;
             scroll = new Vector2(0, 0);
             //load each room
             int i;
@@ -43,7 +45,11 @@ namespace _24hGame.GameEngine
             int i;
             for (i = 0; i < rooms.Count; i++)
             {
-                rooms[i].Update(gameTime, scroll);
+                if(rooms[i].Update(gameTime, scroll))
+                {
+                    player.Reset();
+                    Load(XMLFileName, player);
+                }
             }
         }
         public void Draw(GameTime gameTime)

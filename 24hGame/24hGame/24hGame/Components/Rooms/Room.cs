@@ -28,11 +28,13 @@ namespace _24hGame.Components.Rooms
         {
             this.player = player;
         }
-        public void Update(GameTime gameTime, Vector2 scroll)
+        public bool Update(GameTime gameTime, Vector2 scroll)
         {
-            player.Update(gameTime);
+            bool gameOver;
+            gameOver = player.Update(gameTime);
             //Move objects
             //Check for colisions
+            return gameOver;
         }
         public void Draw(GameTime gameTime, Vector2 scroll)
         {
