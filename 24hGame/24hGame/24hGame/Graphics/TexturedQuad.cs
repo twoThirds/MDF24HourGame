@@ -87,7 +87,7 @@ namespace _24hGame.Graphics
 		static Game1 game;
 		static public void Initialize(Game1 game)
         {
-            quad = new Quad(Vector3.Zero, Vector3.Backward, Vector3.Down, 1, 1);
+            quad = new Quad(Vector3.Zero, Vector3.Forward, Vector3.Up, 1, 1);
 
             quadEffect = new BasicEffect(game.GraphicsDevice);
             //quadEffect.EnableDefaultLighting();

@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using _24hGame.Graphics;
+using _24hGame.Drawable.Smart.Destructable.Contrelled;
 
 namespace _24hGame
 {
@@ -17,6 +18,7 @@ namespace _24hGame
     /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
+		Player tmpPlayer;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
@@ -62,12 +64,14 @@ namespace _24hGame
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            View = Matrix.CreateLookAt(new Vector3(0, 0, 10), Vector3.Zero, Vector3.Down);
+            View = Matrix.CreateLookAt(new Vector3(0, 0, -10), Vector3.Zero, Vector3.Up);
 			Projection = Matrix.CreateOrthographic(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height, 1.0f, 100.0f);
 
 			//Projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4, 4.0f / 3.0f, 1, 500);
 
 			TexturedQuad.Initialize(this);
+			tmpPlayer = new Player();
+			tmpPlayer.Initialize(this);
             base.Initialize();
         }
 
@@ -102,7 +106,7 @@ namespace _24hGame
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
-
+			tmpPlayer.Update(gameTime);
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -118,7 +122,7 @@ namespace _24hGame
 			spriteBatch.Begin();
 			//spriteBatch.Draw(tq.Texture, new Rectangle(0, 0, 50, 50), Color.White);
 			spriteBatch.End();
-
+			tmpPlayer.Draw(gameTime);
             // TODO: Add your drawing code here
             base.Draw(gameTime);
         }
