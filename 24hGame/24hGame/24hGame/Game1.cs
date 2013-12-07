@@ -19,7 +19,6 @@ namespace _24hGame
     /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
-		Player tmpPlayer;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Engine engine;
@@ -68,14 +67,12 @@ namespace _24hGame
             // TODO: Add your initialization logic here
             View = Matrix.CreateLookAt(new Vector3(0, 0, -10), Vector3.Zero, Vector3.Up);
 			Projection = Matrix.CreateOrthographic(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height, 1.0f, 100.0f);
-            engine = new Engine();
+            engine = new Engine(this);
             //Takes path to an XML file and loads a level
             engine.Load("placeholder.xml");
 			//Projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4, 4.0f / 3.0f, 1, 500);
 
 			TexturedQuad.Initialize(this);
-			tmpPlayer = new Player();
-			tmpPlayer.Initialize(this);
             base.Initialize();
         }
 
@@ -110,9 +107,8 @@ namespace _24hGame
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
-			tmpPlayer.Update(gameTime);
             // TODO: Add your update logic here
-            
+            engine.UpdateWorld(gameTime);
             base.Update(gameTime);
         }
 
@@ -126,7 +122,6 @@ namespace _24hGame
 			spriteBatch.Begin();
 			//spriteBatch.Draw(tq.Texture, new Rectangle(0, 0, 50, 50), Color.White);
 			spriteBatch.End();
-			tmpPlayer.Draw(gameTime);
             // TODO: Add your drawing code here
             engine.RenderWorld(gameTime);
             base.Draw(gameTime);
