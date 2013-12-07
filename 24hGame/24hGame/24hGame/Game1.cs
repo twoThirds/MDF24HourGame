@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using _24hGame.Graphics;
-using _24hGame.Drawable.Smart.Destructable.Contrelled;
+using _24hGame.Drawable.Smart.Destructable.Controlled;
 using _24hGame.GameEngine;
 
 namespace _24hGame

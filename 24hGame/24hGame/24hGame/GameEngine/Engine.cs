@@ -1,5 +1,5 @@
 ﻿using _24hGame.Components.Rooms;
-using _24hGame.Drawable.Smart.Destructable.Contrelled;
+using _24hGame.Drawable.Smart.Destructable.Controlled;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
