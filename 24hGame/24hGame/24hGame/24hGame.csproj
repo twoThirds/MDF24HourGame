@@ -131,6 +131,8 @@
     <Compile Include="Drawable\WeaponAnimation.cs" />
     <Compile Include="GameEngine\Engine.cs" />
     <Compile Include="GameEngine\Level.cs" />
+    <Compile Include="Graphics\Animation.cs" />
+    <Compile Include="Graphics\SimpleAnimation.cs" />
     <Compile Include="Graphics\TexturedQuad.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />

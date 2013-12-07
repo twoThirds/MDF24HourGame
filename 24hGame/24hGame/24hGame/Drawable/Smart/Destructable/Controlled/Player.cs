@@ -51,7 +51,7 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
             if (Keyboard.GetState().IsKeyDown(Keys.D))
                 direction.X += 1;
             if (Keyboard.GetState().IsKeyDown(Keys.Q))
-                HitPoints -= 5;
+                HitPoints -= 2;
 
 			//dev
 			Position += direction;

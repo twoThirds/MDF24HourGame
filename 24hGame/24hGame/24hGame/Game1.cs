@@ -162,6 +162,6 @@ namespace _24hGame
 			debugTexturedQuad.Draw(new Vector2(0, 0), 0);
 			debugTexturedQuadRotation += 1f;
 			debugTexturedQuad.Draw(new Vector2(0, 50), MathHelper.ToRadians(debugTexturedQuadRotation));
-        }
+		}
     }
 }
