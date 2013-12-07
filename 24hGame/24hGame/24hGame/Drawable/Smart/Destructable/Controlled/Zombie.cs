@@ -17,7 +17,7 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
             Texture = new TexturedQuad();
             Texture.Texture = game.Content.Load<Texture2D>("derp");
             HitPoints = 10;
-            AttackRange = 10;
+            AttackRange = 20;
             Damage = 3;
         }
     }
