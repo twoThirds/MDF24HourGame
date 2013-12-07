@@ -9,5 +9,5 @@ namespace _24hGame.BaseTypes
     class DrawableEntity : Entity
     {
         Vector2 position;
-    }   
+    }
 }
