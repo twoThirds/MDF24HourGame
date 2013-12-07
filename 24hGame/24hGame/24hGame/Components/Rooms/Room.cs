@@ -11,7 +11,7 @@ namespace _24hGame.Components.Rooms
 {
     class Room
     {
-        List<Entity> roomContent;
+        List<DrawableEntity> obstacle;
         List<Enemy> enemies;
         List<Projectile> projectiles;
         List<Trap> traps;
