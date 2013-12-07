@@ -15,7 +15,13 @@ namespace _24hGame.Components.Rooms
         List<Enemy> enemies;
         List<Projectile> projectiles;
         List<Trap> traps;
-
+        public void Load()
+        {
+            //load room content
+            //walls (Dumb Entity)
+            //spawners
+            //treasures chests
+        }
         public void Update(GameTime gameTime, Vector2 scroll)
         {
             //Move objects

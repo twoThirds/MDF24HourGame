@@ -69,6 +69,8 @@ namespace _24hGame
             View = Matrix.CreateLookAt(new Vector3(0, 0, -10), Vector3.Zero, Vector3.Up);
 			Projection = Matrix.CreateOrthographic(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height, 1.0f, 100.0f);
             engine = new Engine();
+            //Takes path to an XML file and loads a level
+            engine.Load("placeholder.xml");
 			//Projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4, 4.0f / 3.0f, 1, 500);
 
 			TexturedQuad.Initialize(this);
