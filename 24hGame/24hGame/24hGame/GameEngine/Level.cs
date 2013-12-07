@@ -17,6 +17,7 @@ namespace _24hGame.GameEngine
         public void Load(String XMLFileName)
         {
             //load each
+            int i;
             for(i = 0; i < rooms.Count; i++)
             {
                 rooms[i].Load();
