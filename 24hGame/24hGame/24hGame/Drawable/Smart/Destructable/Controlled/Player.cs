@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace _24hGame.Drawable.Smart.Destructable.Contrelled
 {
-	class Player : ControlledEntity
+	public class Player : ControlledEntity
 	{
 		TexturedQuad texture;
 		Vector2 position;
@@ -26,7 +26,8 @@ namespace _24hGame.Drawable.Smart.Destructable.Contrelled
 		{
 			texture.Draw(position);
 		}
-
+        public void Update(){
+        }
 		public void Update(GameTime gameTime)
 		{
 			Vector2 direction = Vector2.Zero;

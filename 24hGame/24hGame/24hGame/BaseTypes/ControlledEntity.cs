@@ -5,7 +5,7 @@ using System.Text;
 
 namespace _24hGame.BaseTypes
 {
-    class ControlledEntity : DestructableEntity
+    public class ControlledEntity : DestructableEntity
     {
     }
 }

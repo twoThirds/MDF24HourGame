@@ -9,7 +9,7 @@ using System.Text;
 
 namespace _24hGame.Components.Rooms
 {
-    class Room
+    public class Room
     {
         List<Entity> roomContent;
         List<Enemy> enemies;

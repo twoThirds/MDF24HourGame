@@ -6,7 +6,7 @@ using System.Text;
 
 namespace _24hGame.BaseTypes
 {
-    class DrawableEntity : Entity
+    public class DrawableEntity : Entity
     {
         Vector2 position;
     }   
