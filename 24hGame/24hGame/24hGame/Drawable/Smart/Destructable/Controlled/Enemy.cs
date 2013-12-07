@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace _24hGame.Drawable.Smart.Destructable.Contrelled
+namespace _24hGame.Drawable.Smart.Destructable.Controlled
 {
     class Enemy : ControlledEntity
     {

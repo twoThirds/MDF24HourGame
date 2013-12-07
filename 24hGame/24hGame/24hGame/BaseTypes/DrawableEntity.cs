@@ -11,6 +11,7 @@ namespace _24hGame.BaseTypes
     {
         Vector2 position;
         Vector2 originOffset;
+        Vector2 size;
         TexturedQuad texture;
 
         public Vector2 Position
@@ -48,5 +49,5 @@ namespace _24hGame.BaseTypes
                 texture = value;
             }
         }
-    }   
+    }
 }

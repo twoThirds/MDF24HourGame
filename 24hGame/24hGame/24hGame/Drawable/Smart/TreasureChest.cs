@@ -5,7 +5,7 @@ using System.Text;
 
 namespace _24hGame.Drawable.Smart
 {
-    class TresureChest
+    class TreasureChest
     {
     }
 }
