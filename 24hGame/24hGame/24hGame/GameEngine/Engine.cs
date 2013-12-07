@@ -12,6 +12,12 @@ namespace _24hGame.GameEngine
     {
         Level level;
         Player player;
+        
+        public void Load(String XMLFileName)
+        {
+            //load a new level
+            level.Load(XMLFileName);
+        }
         public void UpdateWorld(GameTime gameTime)
         {
             level.Update(gameTime, player);

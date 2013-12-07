@@ -11,7 +11,17 @@ namespace _24hGame.GameEngine
     class Level
     {
         List<Room> rooms;
-        Room current;
+        Room currentRoom;
+        
+        //Takes path to an XML file and loads a level
+        public void Load(String XMLFileName)
+        {
+            //load each
+            for(i = 0; i < rooms.Count; i++)
+            {
+                rooms[i].Load();
+            }
+        }
         public void Draw(GameTime gameTime, Player player)
         {
             Vector2 scroll = new Vector2(0, 0);
