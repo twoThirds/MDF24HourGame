@@ -9,9 +9,6 @@ namespace _24hGame.BaseTypes
 {
     public class Entity
     {
-        double x;
-        double y;
-
         public void Serialize<Entity>(Entity data, string filePath)
         {
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(Entity));
