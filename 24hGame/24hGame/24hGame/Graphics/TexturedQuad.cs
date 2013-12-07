@@ -79,7 +79,7 @@ namespace _24hGame.Graphics
         }
     }
 
-    class TexturedQuad
+    public class TexturedQuad
     {
         static Quad quad;
         static BasicEffect quadEffect;

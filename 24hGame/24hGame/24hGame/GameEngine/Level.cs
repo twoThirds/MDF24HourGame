@@ -50,7 +50,7 @@ namespace _24hGame.GameEngine
         //Takes path to an XML file and loads a level
         public void Load(String XMLFileName, Player player)
         {
-
+            Serialize(this, @"D:/record.xml");
             this.player = player;
             scroll = new Vector2(0, 0);
             //load each room

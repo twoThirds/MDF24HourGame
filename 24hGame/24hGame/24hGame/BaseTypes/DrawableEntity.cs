@@ -13,40 +13,40 @@ namespace _24hGame.BaseTypes
         Vector2 originOffset;
         TexturedQuad texture;
 
-        //public Vector2 Position
-        //{
-        //    get
-        //    {
-        //        return position;
-        //    }
-        //    set
-        //    {
-        //        position = value;
-        //    }
-        //}
+        public Vector2 Position
+        {
+            get
+            {
+                return position;
+            }
+            set
+            {
+                position = value;
+            }
+        }
 
-        //public Vector2 OriginOffset
-        //{
-        //    get
-        //    {
-        //        return originOffset;
-        //    }
-        //    set
-        //    {
-        //        originOffset = value;
-        //    }
-        //}
+        public Vector2 OriginOffset
+        {
+            get
+            {
+                return originOffset;
+            }
+            set
+            {
+                originOffset = value;
+            }
+        }
 
-        //public TexturedQuad Texture
-        //{
-        //    get
-        //    {
-        //        return texture;
-        //    }
-        //    set
-        //    {
-        //        texture = value;
-        //    }
-        //}
+        public TexturedQuad Texture
+        {
+            get
+            {
+                return texture;
+            }
+            set
+            {
+                texture = value;
+            }
+        }
     }   
 }
