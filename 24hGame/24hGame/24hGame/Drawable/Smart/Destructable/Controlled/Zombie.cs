@@ -9,34 +9,16 @@ using System.Text;
 
 namespace _24hGame.Drawable.Smart.Destructable.Controlled
 {
-    class Zombie: ControlledEntity
+    class Zombie: Enemy
     {
-        public DestructableEntity target;
-        public void setTarget(DestructableEntity target)
+        public override void Load(Game1 game)
         {
-            this.target = target;
-        }
-        public void Load(Game1 game)
-        {
-            Position = new Vector2(500, 200);
+            Position = new Vector2(200, 200);
             Texture = new TexturedQuad();
             Texture.Texture = game.Content.Load<Texture2D>("derp");
             HitPoints = 10;
             AttackRange = 10;
             Damage = 3;
-        }
-        public void Draw(GameTime gameTime)
-        {
-            Texture.Draw(Position);
-        }
-
-        //returns wether or not its dead
-        public void Update(GameTime gameTime)
-        {
-            if(Vector2.Distance(Position, target.Position) > AttackRange)
-            {
-                target.HitPoints -= Damage;
-            }
         }
     }
 }
