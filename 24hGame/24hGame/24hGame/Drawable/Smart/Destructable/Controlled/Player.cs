@@ -12,16 +12,21 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
 {
 	public class Player : ControlledEntity
 	{
+
         public Player() {
             Position = new Vector2(100, 100);
             Texture = new TexturedQuad();
         }
+
+        bool qDown;
+
 		public void Initialize(Game1 game)
 		{
 			Position = new Vector2(100, 100);
 			Texture = new TexturedQuad();
 			Texture.Texture = game.Content.Load<Texture2D>("derp");
             HitPoints = 10;
+            qDown = false;
 		}
 
         public void Reset()
@@ -51,7 +56,14 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
             if (Keyboard.GetState().IsKeyDown(Keys.D))
                 direction.X += 1;
             if (Keyboard.GetState().IsKeyDown(Keys.Q))
+            {
+                qDown = true;
+            }
+            else if (qDown)
+            {
+                qDown = false;
                 HitPoints -= 2;
+            }
 
 			//dev
 			Position += direction;
