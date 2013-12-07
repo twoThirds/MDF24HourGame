@@ -18,8 +18,9 @@ namespace _24hGame.Components.Rooms
 
         public void Update(GameTime gameTime, Vector2 scroll)
         {
+            //enemies[0].
             //Move objects
-            //Check for colisions 
+            //Check for colisions
         }
         public void Draw(GameTime gameTime, Vector2 scroll)
         {
