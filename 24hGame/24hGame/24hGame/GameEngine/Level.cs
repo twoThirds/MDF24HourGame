@@ -22,6 +22,10 @@ namespace _24hGame.GameEngine
                 rooms[i].Load();
             }
         }
+        public void Update(GameTime gameTime)
+        {
+
+        }
         public void Draw(GameTime gameTime, Player player)
         {
             Vector2 scroll = new Vector2(0, 0);
