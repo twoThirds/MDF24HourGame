@@ -22,7 +22,8 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
             Texture = new TexturedQuad();
             Texture.Texture = game.Content.Load<Texture2D>("derp");
             HitPoints = 10;
-            attackRange = 10;
+            AttackRange = 10;
+            Damage = 3;
         }
         public void Draw(GameTime gameTime)
         {
@@ -30,9 +31,12 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
         }
 
         //returns wether or not its dead
-        public bool Update(GameTime gameTime)
+        public void Update(GameTime gameTime)
         {
-            return true;
+            if(Vector2.Distance(Position, target.Position) > AttackRange)
+            {
+                target.HitPoints -= Damage;
+            }
         }
     }
 }
