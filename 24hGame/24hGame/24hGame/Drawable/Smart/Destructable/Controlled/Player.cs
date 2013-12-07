@@ -7,12 +7,13 @@ using _24hGame.BaseTypes;
 using _24hGame.Graphics;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using _24hGame.Components.Rooms;
 
 namespace _24hGame.Drawable.Smart.Destructable.Controlled
 {
 	class Player : ControlledEntity
 	{
-        bool qDown;
+        bool qDown, eDown;
 		public void Initialize(Game1 game)
 		{
 			Position = new Vector2(100, 100);
@@ -33,7 +34,7 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
 		}
 
         //returns wether or not its dead
-		public bool Update(GameTime gameTime)
+		public bool Update(GameTime gameTime, Room room)
 		{
             bool dead = false;
 			Vector2 direction = Vector2.Zero;
@@ -53,6 +54,15 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
             {
                 qDown = false;
                 HitPoints -= 2;
+            }
+            if (Keyboard.GetState().IsKeyDown(Keys.Q))
+            {
+                eDown = true;
+            }
+            else if (qDown)
+            {
+                eDown = false;
+                room.Interact();
             }
 
 			//dev

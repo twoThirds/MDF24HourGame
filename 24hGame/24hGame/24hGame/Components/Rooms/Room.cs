@@ -11,7 +11,7 @@ namespace _24hGame.Components.Rooms
 {
     class Room
     {
-        List<DrawableEntity> obstacle;
+        List<DrawableEntity> obstacles;
         List<Enemy> enemies;
         List<Projectile> projectiles;
         List<Trap> traps;
@@ -24,6 +24,7 @@ namespace _24hGame.Components.Rooms
             //spawners
             //treasures chests
             enemies = new List<Enemy>();
+            obstacles = new List<DrawableEntity>();
             //This should be moved to spawners
             enemies.Add(  (Enemy)( new Zombie() )  );
             int i;
@@ -50,7 +51,7 @@ namespace _24hGame.Components.Rooms
             {
                 enemies[i].Update(gameTime);
             }
-            gameOver = player.Update(gameTime);
+            gameOver = player.Update(gameTime, this);
             //Move objects
             //Check for colisions
             return gameOver;
@@ -63,6 +64,19 @@ namespace _24hGame.Components.Rooms
                 enemies[i].Draw(gameTime);
             }
             player.Draw(gameTime);
+        }
+        public void Interact()
+        {
+            int i;
+            for (i = 0; i < obstacles.Count; i++)
+            {
+                if(obstacles[i].Interactable)
+                {
+                    if (Vector2.Distance(player.Position, obstacles[i].Position) < obstacles[i].InteractDistance)
+                    {
+                    }
+                }
+            }
         }
     }
 }

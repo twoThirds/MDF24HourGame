@@ -20,6 +20,8 @@ namespace _24hGame.Drawable.Smart.Destructable
             Texture = new TexturedQuad();
             Texture.Texture = game.Content.Load<Texture2D>("derp");
             hacking = false;
+            Interactable = true;
+            InteractDistance = 50;
         }
 
         public void Draw(GameTime gameTime)
@@ -29,6 +31,10 @@ namespace _24hGame.Drawable.Smart.Destructable
 
         public void Update(GameTime gameTime)
         {
+        }
+        public void interact()
+        {
+
         }
     }
 }
