@@ -107,9 +107,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseTypes\ControlledEntity.cs" />
+    <Compile Include="BaseTypes\DestructableEntity.cs" />
+    <Compile Include="BaseTypes\DrawableEntity.cs" />
+    <Compile Include="BaseTypes\DumbEntity.cs" />
+    <Compile Include="BaseTypes\Entity.cs" />
+    <Compile Include="BaseTypes\Music.cs" />
+    <Compile Include="BaseTypes\SoundEffect.cs" />
+    <Compile Include="BaseTypes\SoundEffectCollection.cs" />
+    <Compile Include="Drawable\Doodad.cs" />
+    <Compile Include="Drawable\Smart\DangerDoor.cs" />
+    <Compile Include="Drawable\Smart\Destructable\Barricade.cs" />
+    <Compile Include="Drawable\Smart\Destructable\Contrelled\Player.cs" />
+    <Compile Include="Drawable\Smart\Destructable\Contrelled\Trap.cs" />
+    <Compile Include="Drawable\Smart\Destructable\Contrelled\Zombie.cs" />
+    <Compile Include="Drawable\Smart\Destructable\VicoryDoor.cs" />
+    <Compile Include="Drawable\Smart\SpawnPoint.cs" />
+    <Compile Include="Drawable\Smart\TresureChest.cs" />
+    <Compile Include="Drawable\Wall.cs" />
+    <Compile Include="Drawable\WeaponAnimation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="BaseTypes\SmartEntity.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
