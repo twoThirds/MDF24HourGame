@@ -14,10 +14,20 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
 	public class Player : ControlledEntity
 	{
         Room room;
-        public Player() {
+		Vector2 cursorPosition;
+        Vector2 AimingDirection;
+        public Player() 
+        {
             Position = new Vector2(100, 100);
-            Texture = new TexturedQuad();
+            //Texture = new TexturedQuad();
+            velocity = Vector2.Zero;
+            heading = new Vector2(0, 1);
+            AimingDirection = Vector2.Zero;
         }
+
+		SimpleAnimation unarmedTorso;
+		SimpleAnimation legs;
+		SimpleAnimation cursorTexture;
 
         bool qDown, eDown;
 
@@ -25,7 +35,12 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
 		{
 			Position = new Vector2(100, 100);
 			Texture = new TexturedQuad();
-            Texture.Texture = game.Content.Load<Texture2D>(@"Textures\Player\animation upper part of the body\unarmed\unarmed1");
+			cursorPosition = new Vector2(0, 0);
+			cursorTexture = new SimpleAnimation(game.Content.Load<Texture2D>(@"Textures\ui\aim"), 13);
+            unarmedTorso = new SimpleAnimation(game.Content.Load<Texture2D>(@"Textures\Player\animation upper part of the body\unarmed\UnarmedAnimation"), 32);
+            legs = new SimpleAnimation(game.Content.Load<Texture2D>(@"Textures\Player\animation legs\legAnimation"), 32);
+            legs.CurrentFrame += 4;
+
             HitPoints = 10;
             qDown = false;
 		}
@@ -39,13 +54,29 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
 
 		public override void Draw(GameTime gameTime)
 		{
-			Texture.Draw(Position);
+			float headingRadian = V2ToRadian(heading);
+			headingRadian -= (float)Math.PI / 2.0f;
+			float aimRadian = V2ToRadian(cursorPosition -Position);
+			aimRadian -= (float)Math.PI / 2.0f;
+            legs.Draw(Position, headingRadian);
+			//
+			unarmedTorso.Draw(Position, aimRadian);
+			cursorTexture.Draw(cursorPosition);
 		}
+
+        private float V2ToRadian(Vector2 direction)
+        {
+            return (float)Math.Atan2(direction.Y, direction.X);
+        }
 
 		public bool Update(GameTime gameTime)
 		{
             bool dead = false;
 			Vector2 direction = Vector2.Zero;
+            direction += (GamePad.GetState(PlayerIndex.One).ThumbSticks.Left);
+            direction.Y *= -1;
+
+			//position modification
 			if (Keyboard.GetState().IsKeyDown(Keys.W))
 				direction.Y += -1;
 			if (Keyboard.GetState().IsKeyDown(Keys.A))
@@ -54,6 +85,11 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
                 direction.Y += 1;
             if (Keyboard.GetState().IsKeyDown(Keys.D))
                 direction.X += 1;
+
+            if (direction.Length() > 0.1)
+                direction.Normalize();
+
+			//interaction and attacking
             if (Keyboard.GetState().IsKeyDown(Keys.Q))
             {
                 qDown = true;
@@ -73,8 +109,41 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
                 room.Interact();
             }
 
+			cursorPosition.X = Mouse.GetState().X;
+			cursorPosition.Y = Mouse.GetState().Y;
 			//dev
-			Position += direction;
+            direction *= 3;
+            float targetVelocityDiff = direction.Length() / velocity.Length();
+            if(direction.Length() > 0 && velocity.Length() > 0)
+            {
+                float directionAngle = (float)Math.Atan2(direction.Y, direction.X);
+                float velocityAngle = (float)Math.Atan2(velocity.Y, velocity.X);
+                float targetAngleDiff;
+                if (velocityAngle == 0)
+                    velocityAngle = 0.00000001f;
+                targetAngleDiff = directionAngle / velocityAngle;
+            }
+
+
+            velocity = direction;
+
+            if (velocity.Length() > 0)
+            {
+                heading = velocity;
+                heading.Normalize();
+            }
+            else
+            { 
+                legs.CurrentFrame = 0;
+                unarmedTorso.CurrentFrame = 4;
+            }
+
+            //AimingDirection
+
+            Position += velocity;
+
+            legs.CurrentFrame += velocity.Length() * 14f * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            unarmedTorso.CurrentFrame += velocity.Length() * 14f * (float)gameTime.ElapsedGameTime.TotalSeconds;
             // /dev
             if (HitPoints <= 0)
             {

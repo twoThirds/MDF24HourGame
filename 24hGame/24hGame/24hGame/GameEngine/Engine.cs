@@ -8,11 +8,26 @@ using System.Text;
 
 namespace _24hGame.GameEngine
 {
-    class Engine
+    public class Engine
     {
         Level level;
         Player player;
         Game1 game;
+
+        public Player Player
+        {
+            get
+            {
+                return player;
+            }
+        }
+        public Level Level
+        {
+            get
+            {
+                return level;
+            }
+        }
 
         public Engine(Game1 game)
         {
@@ -20,11 +35,15 @@ namespace _24hGame.GameEngine
            level = new Level();
            player = new Player();
         }
+        public void Initialize(String XMLFileName)
+		{
+			player.Initialize(game);
+			level.Initialize(XMLFileName, player, game);
+			Load(XMLFileName);
+		}
         public void Load(String XMLFileName)
         {
-            player.Initialize(game);
             //load a new level
-            level.Load(XMLFileName, player, game);
         }
 
         public void UpdateWorld(GameTime gameTime)
