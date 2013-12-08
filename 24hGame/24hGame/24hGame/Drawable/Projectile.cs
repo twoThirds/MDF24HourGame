@@ -50,8 +50,8 @@ namespace _24hGame.Drawable
 
 		public float Velocity
 		{
-			get{return velocity}
-			set{velocity = value}
+			get{return velocity;}
+			set {velocity = value;}
 		}
     }
 
