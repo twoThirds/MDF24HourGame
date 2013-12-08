@@ -9,13 +9,38 @@ namespace _24hGame.GameEngine
 {
 	class Collision
 	{
-		public bool DetectCollision(DrawableEntity e1, DrawableEntity e2)
+		public bool DetectCollision(ControlledEntity e1, DrawableEntity e2)
 		{
-			List<Vector2> c1;
-			List<Vector2> c2;
+			float e1px = e1.Position.X;
+			float e1py = e1.Position.Y;
+			float e1sx = e1.Size.X;
+			float e1sy = e1.Size.Y;
+			float e2px = e2.Position.X;
+			float e2py = e2.Position.Y;
+			float e2sx = e2.Size.X;
+			float e2sy = e2.Size.Y;
+
+			if (((e1px > e2px) && (e1px < (e2px + e2sx))) || (((e1px + e1sx) > e2px) && ((e1px + e1sx) < (e2px + e2sx))))
+			{
+				//entity1 left or right side is within object
+				if (((e1py > e2py) && (e1py < (e2py + e2sy))) || (((e1py + e1sy) > e2py) && ((e1py + e1sy) < (e2py + e2sy))))
+				{
+					//entity1 top or bottom side is also within object
+
+					return true;
+				}
+			}
+			
 
 
-			if(e1.Position.X+e1.)
+			//else if (((e1px + e1sx) > e2px) && ((e1px + e1sx) < (e2px + e2sx)))
+			//{
+			//	//entity1 right side is within object
+			//}
+			//else if (((e1py + e1sy) > e2py) && ((e1py + e1sy) < (e2py + e2sy)))
+			//{
+			//	//entity1 bottom side is within object
+			//}	
 
 			//c1.Add()
 
