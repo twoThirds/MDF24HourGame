@@ -129,6 +129,7 @@
     <Compile Include="Drawable\Smart\TreasureChest.cs" />
     <Compile Include="Drawable\Wall.cs" />
     <Compile Include="Drawable\WeaponAnimation.cs" />
+    <Compile Include="GameEngine\Collision.cs" />
     <Compile Include="GameEngine\Engine.cs" />
     <Compile Include="GameEngine\Level.cs" />
     <Compile Include="Graphics\TexturedQuad.cs" />

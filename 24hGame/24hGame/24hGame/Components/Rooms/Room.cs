@@ -2,6 +2,7 @@
 using _24hGame.Drawable;
 using _24hGame.Drawable.Smart.Destructable.Controlled;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Design;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +35,19 @@ namespace _24hGame.Components.Rooms
             gameOver = player.Update(gameTime);
             //Move objects
             //Check for colisions
+            
+            //List<Vector2> corners;
+            //Vector2 corner;
+            //corner.X = player.Position.X;
+            //corners.Add(player.Position);
+            //corners.Add(1,0);
+            //RectangleConverter
+
+            //if (player.Position.X)
+            {
+                
+            }
+
             return gameOver;
         }
         public void Draw(GameTime gameTime, Vector2 scroll)
