@@ -125,7 +125,7 @@ namespace _24hGame.Components.Weapons
                 int shotsPerFrame = (int)(gameTime.ElapsedGameTime.TotalSeconds / TimePerAttack);
                 while (shotsPerFrame > 0)
                 {
-                    SpawnProjectile(shotsPerFrame * TimePerAttack);
+                    //SpawnProjectile(shotsPerFrame * TimePerAttack);
                     shotsPerFrame--;
                 }
 
@@ -136,10 +136,10 @@ namespace _24hGame.Components.Weapons
 
         private void SpawnProjectile(float headStart, List<Projectile> ProjectilesCollection)
         {
-            float shootingAngle = Utility.V2ToAngle(game.Engine.Player.Aiming);
-            Projectile projectile = new Projectile();
+            float shootingAngle = Utility.V2ToAngle(game.Engine.Player.AimingDirection);
+            //Projectile projectile = new Projectile();
 
-            ProjectilesCollection.Add(projectile);
+            //ProjectilesCollection.Add(projectile);
         }
     }
 }
