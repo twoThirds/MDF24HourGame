@@ -27,6 +27,8 @@ namespace _24hGame.GameEngine
 				{
 					//entity1 top or bottom side is also within object
 
+
+
 					return true;
 				}
 			}
