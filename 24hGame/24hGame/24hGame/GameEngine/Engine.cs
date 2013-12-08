@@ -24,17 +24,16 @@ namespace _24hGame.GameEngine
         {
             player.Initialize(game);
             //load a new level
-            level.Load(XMLFileName, player);
+            level.Load(XMLFileName, player, game);
         }
+
         public void UpdateWorld(GameTime gameTime)
         {
             level.Update(gameTime);
-            player.Draw(gameTime);
         }
         public void RenderWorld(GameTime gameTime)
         {
             level.Draw(gameTime);
-            player.Draw(gameTime);
         }
     }
 }

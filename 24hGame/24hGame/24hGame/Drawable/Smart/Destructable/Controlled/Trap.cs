@@ -5,7 +5,7 @@ using System.Text;
 
 namespace _24hGame.Drawable.Smart.Destructable.Controlled
 {
-    class Trap
+    public class Trap
     {
     }
 }

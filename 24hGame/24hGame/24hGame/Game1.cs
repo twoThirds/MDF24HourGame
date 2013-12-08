@@ -22,6 +22,8 @@ namespace _24hGame
         GraphicsDeviceManager graphics;
 		Texture2D gameGuiBackground;
         SpriteBatch spriteBatch;
+		Texture2D cursorTexture;
+		Vector2 cursorPosition;
 		Engine engine;
 
         public Matrix View
@@ -68,9 +70,13 @@ namespace _24hGame
             // TODO: Add your initialization logic here
 			engine = new Engine(this);
 			//Takes path to an XML file and loads a level
-			engine.Load("placeholder.xml");
+
+			engine.Load("D:/placeholder.xml");
+			//Projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4, 4.0f / 3.0f, 1, 500);
+
             View = Matrix.CreateLookAt(new Vector3(0, 0, -10), Vector3.Zero, Vector3.Down);
 			Projection = Matrix.CreateOrthographicOffCenter(0, GraphicsDevice.Viewport.Width, -GraphicsDevice.Viewport.Height, 0, 1.0f, 100.0f);
+
 
 			TexturedQuad.Initialize(this);
             base.Initialize();
@@ -84,11 +90,10 @@ namespace _24hGame
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+			cursorTexture = Content.Load<Texture2D>(@"Textures\ui\pistol bullet");
 			gameGuiBackground = Content.Load<Texture2D>("gameGuiBackground");
-			debugTexturedQuad = new TexturedQuad();
-			debugTexturedQuad.Texture = Content.Load<Texture2D>("derp");
-
+			debugTexturedQuad = new TexturedQuad(Content.Load<Texture2D>("debug"));
+            animationTest = new SimpleAnimation(Content.Load<Texture2D>("animationtest"), 32);
             // TODO: use this.Content to load your game content here
         }
 
@@ -130,15 +135,15 @@ namespace _24hGame
 			// Remove back-face culling, this is not really a great thing to do
 			RasterizerState raster = new RasterizerState();
 			raster.CullMode = CullMode.None;
-			GraphicsDevice.RasterizerState = raster;
+			//GraphicsDevice.RasterizerState = raster;
 
 			// Render game graphics (NOT Gui here)
 
-			DrawDebugGraphics();
+            DrawDebugGraphics(gameTime);
+			engine.RenderWorld(gameTime);
 			// Do not draw anu more game graphics after this point
 
 			// Spritebatch MUST be placed after all other rendering is done, or raster needs to be set again
-			engine.RenderWorld(gameTime);
 			spriteBatch.Begin();
 				spriteBatch.Draw(gameGuiBackground, new Vector2(0, 0), Color.White);
 				// Render GUI AFTER this line
@@ -148,16 +153,25 @@ namespace _24hGame
             base.Draw(gameTime);
         }
 
-		TexturedQuad debugTexturedQuad;
-		Vector2 debugTexturedQuadLocation = new Vector2(100, 50);
+        TexturedQuad debugTexturedQuad;
+        SimpleAnimation animationTest;
+        Vector2 debugTexturedQuadLocation = new Vector2(100, 50);
 		float debugTexturedQuadRotation = 0;
-		private void DrawDebugGraphics()
+		private void DrawDebugGraphics(GameTime gameTime)
 		{
-			debugTexturedQuadLocation.Y += 0.1f;
+			debugTexturedQuadLocation.Y += 1f;
 			debugTexturedQuad.Draw(debugTexturedQuadLocation);
 			debugTexturedQuad.Draw(new Vector2(0, 0), 0);
 			debugTexturedQuadRotation += 1f;
-			debugTexturedQuad.Draw(new Vector2(0, 50), MathHelper.ToRadians(debugTexturedQuadRotation));
+            debugTexturedQuad.Draw(new Vector2(0, 50), MathHelper.ToRadians(debugTexturedQuadRotation));
+
+
+            //debugTexturedQuad.Draw(new Vector2(300, 300), new Vector4(0, 0, 25, 25), MathHelper.ToRadians(debugTexturedQuadRotation));
+            debugTexturedQuad.Draw(new Vector2(300, 300), new Rectangle(25, 25, 75, 75), MathHelper.ToRadians(debugTexturedQuadRotation));
+
+
+            animationTest.Draw(new Vector2(500, 300));
+            animationTest.CurrentFrame += 1f * (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
     }
 }

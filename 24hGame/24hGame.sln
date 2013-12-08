@@ -1,11 +1,9 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2013 for Windows Desktop
-VisualStudioVersion = 12.0.21005.1
-MinimumVisualStudioVersion = 10.0.40219.1
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C# Express 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "24hGame", "24hGame\24hGame\24hGame.csproj", "{3BCC1011-5475-4001-992B-BD817B29068C}"
 EndProject
-Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "24hGameContent", "24hGame\24hGameContent\24hGameContent.contentproj", "{C9BB80FB-46D9-4E05-8283-AEFF7FCC3228}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "24hGameContent", "24hGame\24hGameContent\24hGameContent.contentproj", "{C9BB80FB-46D9-4E05-8283-AEFF7FCC3228}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
