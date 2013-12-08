@@ -90,7 +90,7 @@ namespace _24hGame
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-			cursorTexture = Content.Load<Texture2D>(@"Textures\ui\pistol bullet");
+			cursorTexture = Content.Load<Texture2D>(@"Textures\ui\aim");
 			gameGuiBackground = Content.Load<Texture2D>("gameGuiBackground");
 			debugTexturedQuad = new TexturedQuad(Content.Load<Texture2D>("debug"));
             animationTest = new SimpleAnimation(Content.Load<Texture2D>("animationtest"), 32);
