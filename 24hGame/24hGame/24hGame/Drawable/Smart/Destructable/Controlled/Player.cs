@@ -14,6 +14,7 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
 	public class Player : ControlledEntity
 	{
         Room room;
+		Vector2 cursorPosition;
         public Player() 
         {
             Position = new Vector2(100, 100);
@@ -22,8 +23,9 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
             heading = new Vector2(0, 1);
         }
 
-        SimpleAnimation unarmedTorso;
-        SimpleAnimation legs;
+		SimpleAnimation unarmedTorso;
+		SimpleAnimation legs;
+		SimpleAnimation cursorTexture;
 
         bool qDown, eDown;
 
@@ -31,6 +33,8 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
 		{
 			Position = new Vector2(100, 100);
 			Texture = new TexturedQuad();
+			cursorPosition = new Vector2(0, 0);
+			cursorTexture = new SimpleAnimation(game.Content.Load<Texture2D>(@"Textures\ui\aim"), 13);
             unarmedTorso = new SimpleAnimation(game.Content.Load<Texture2D>(@"Textures\Player\animation upper part of the body\unarmed\UnarmedAnimation"), 32);
             legs = new SimpleAnimation(game.Content.Load<Texture2D>(@"Textures\Player\animation legs\legAnimation"), 32);
             legs.CurrentFrame += 4;
@@ -52,6 +56,7 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
             headingRadian -= (float)Math.PI / 2.0f;
             legs.Draw(Position, headingRadian);
             unarmedTorso.Draw(Position, headingRadian);
+			cursorTexture.Draw(cursorPosition);
 		}
 
         private float V2ToRadian(Vector2 direction)
@@ -66,6 +71,7 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
             direction += (GamePad.GetState(PlayerIndex.One).ThumbSticks.Left);
             direction.Y *= -1;
 
+			//position modification
 			if (Keyboard.GetState().IsKeyDown(Keys.W))
 				direction.Y += -1;
 			if (Keyboard.GetState().IsKeyDown(Keys.A))
@@ -78,7 +84,7 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
             if (direction.Length() > 0.1)
                 direction.Normalize();
 
-
+			//interaction and attacking
             if (Keyboard.GetState().IsKeyDown(Keys.Q))
             {
                 qDown = true;
@@ -98,6 +104,8 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
                 room.Interact();
             }
 
+			cursorPosition.X = Mouse.GetState().X;
+			cursorPosition.Y = Mouse.GetState().Y;
 			//dev
             direction *= 3;
             float targetVelocityDiff = direction.Length() / velocity.Length();

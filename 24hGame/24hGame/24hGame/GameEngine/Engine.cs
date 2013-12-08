@@ -20,11 +20,15 @@ namespace _24hGame.GameEngine
            level = new Level();
            player = new Player();
         }
+        public void Initialize(String XMLFileName)
+		{
+			player.Initialize(game);
+			level.Initialize(XMLFileName, player, game);
+			Load(XMLFileName);
+		}
         public void Load(String XMLFileName)
         {
-            player.Initialize(game);
             //load a new level
-            level.Load(XMLFileName, player, game);
         }
 
         public void UpdateWorld(GameTime gameTime)
