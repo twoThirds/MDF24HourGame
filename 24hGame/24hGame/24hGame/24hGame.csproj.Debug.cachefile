@@ -1,7 +1,94 @@
 Content\derp.xnb
 Content\large.xnb
 Content\gameGuiBackground.xnb
-Content\Shaders\Basic\AnimatedQuad.xnb
+Content\Textures\Location\wood theme\blockade\blockade 1 9X43.xnb
+Content\Textures\Location\wood theme\blockade\blockade 2 9X43.xnb
+Content\Textures\Location\wood theme\doors\door 30.xnb
+Content\Textures\Location\wood theme\doors\door frame closed 50.xnb
+Content\Textures\Location\wood theme\doors\door frame opened 50.xnb
+Content\Textures\Location\wood theme\floor\floor 10.xnb
+Content\Textures\Location\wood theme\floor\floor 100.xnb
+Content\Textures\Location\wood theme\floor\floor 50.xnb
+Content\Textures\Location\wood theme\walls\corner 20X20.xnb
+Content\Textures\Location\wood theme\walls\wall 10.xnb
+Content\Textures\Location\wood theme\walls\wall 100.xnb
+Content\Textures\Location\wood theme\walls\wall 50.xnb
+Content\Textures\Location\wood theme\walls\wall endpiece.xnb
+Content\Textures\Location\wood theme\windows\window 50.xnb
+Content\Textures\Location\wood theme\windows\window broken 50.xnb
+Content\Textures\Player\animation legs\player1.xnb
+Content\Textures\Player\animation legs\player2.xnb
+Content\Textures\Player\animation legs\player3.xnb
+Content\Textures\Player\animation legs\player4.xnb
+Content\Textures\Player\animation legs\player5.xnb
+Content\Textures\Player\animation legs\player6.xnb
+Content\Textures\Player\animation legs\player7.xnb
+Content\Textures\Player\animation legs\player8.xnb
+Content\Textures\Player\animation upper part of the body\pistol\pistol1.xnb
+Content\Textures\Player\animation upper part of the body\pistol\pistol2.xnb
+Content\Textures\Player\animation upper part of the body\pistol\pistol3.xnb
+Content\Textures\Player\animation upper part of the body\pistol\pistol4.xnb
+Content\Textures\Player\animation upper part of the body\pistol\pistol5.xnb
+Content\Textures\Player\animation upper part of the body\pistol\pistol6.xnb
+Content\Textures\Player\animation upper part of the body\pistol\pistol7.xnb
+Content\Textures\Player\animation upper part of the body\pistol\pistol8.xnb
+Content\Textures\Player\animation upper part of the body\unarmed\unarmed1.xnb
+Content\Textures\Player\animation upper part of the body\unarmed\unarmed2.xnb
+Content\Textures\Player\animation upper part of the body\unarmed\unarmed3.xnb
+Content\Textures\Player\animation upper part of the body\unarmed\unarmed4.xnb
+Content\Textures\Player\animation upper part of the body\unarmed\unarmed5.xnb
+Content\Textures\Player\animation upper part of the body\unarmed\unarmed6.xnb
+Content\Textures\Player\animation upper part of the body\unarmed\unarmed7.xnb
+Content\Textures\Player\animation upper part of the body\unarmed\unarmed8.xnb
+Content\Textures\Player\death animation\death1.xnb
+Content\Textures\Player\death animation\death10.xnb
+Content\Textures\Player\death animation\death11.xnb
+Content\Textures\Player\death animation\death12.xnb
+Content\Textures\Player\death animation\death13.xnb
+Content\Textures\Player\death animation\death14.xnb
+Content\Textures\Player\death animation\death15.xnb
+Content\Textures\Player\death animation\death16.xnb
+Content\Textures\Player\death animation\death17.xnb
+Content\Textures\Player\death animation\death18.xnb
+Content\Textures\Player\death animation\death19.xnb
+Content\Textures\Player\death animation\death2.xnb
+Content\Textures\Player\death animation\death20.xnb
+Content\Textures\Player\death animation\death21.xnb
+Content\Textures\Player\death animation\death22.xnb
+Content\Textures\Player\death animation\death23.xnb
+Content\Textures\Player\death animation\death24.xnb
+Content\Textures\Player\death animation\death3.xnb
+Content\Textures\Player\death animation\death4.xnb
+Content\Textures\Player\death animation\death5.xnb
+Content\Textures\Player\death animation\death6.xnb
+Content\Textures\Player\death animation\death7.xnb
+Content\Textures\Player\death animation\death8.xnb
+Content\Textures\Player\death animation\death9.xnb
+Content\Textures\Player\gunfire animation\gunfire 1.xnb
+Content\Textures\Player\gunfire animation\gunfire 2.xnb
+Content\Textures\Player\gunfire animation\gunfire 3.xnb
+Content\Textures\Enemies\Zombie\attacking animation\attack1.xnb
+Content\Textures\Enemies\Zombie\attacking animation\attack2.xnb
+Content\Textures\Enemies\Zombie\attacking animation\attack3.xnb
+Content\Textures\Enemies\Zombie\attacking animation\attack4.xnb
+Content\Textures\Enemies\Zombie\attacking animation\attack5.xnb
+Content\Textures\Enemies\Zombie\attacking animation\attack6.xnb
+Content\Textures\Enemies\Zombie\attacking animation\attack7.xnb
+Content\Textures\Enemies\Zombie\attacking animation\attack8.xnb
+Content\Textures\Enemies\Zombie\walking animation\zombie1.xnb
+Content\Textures\Enemies\Zombie\walking animation\zombie2.xnb
+Content\Textures\Enemies\Zombie\walking animation\zombie3.xnb
+Content\Textures\Enemies\Zombie\walking animation\zombie4.xnb
+Content\Textures\Enemies\Zombie\walking animation\zombie5.xnb
+Content\Textures\Enemies\Zombie\walking animation\zombie6.xnb
+Content\Textures\Enemies\Zombie\walking animation\zombie7.xnb
+Content\Textures\Enemies\Zombie\walking animation\zombie8.xnb
+Content\Textures\Player\weapons\granade.xnb
+Content\Textures\Player\weapons\mines.xnb
+Content\Textures\items\ammo.xnb
+Content\Textures\ui\aim.xnb
+Content\Textures\ui\pistol bullet.xnb
 Content\debug.xnb
-Content\Shaders\Basic\AnimatedQuad - Copy.xnb
 Content\animationtest.xnb
+Content\Shaders\Basic\AnimatedQuad.xnb
+Content\Shaders\Basic\AnimatedQuad - Copy.xnb

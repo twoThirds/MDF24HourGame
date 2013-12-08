@@ -121,6 +121,7 @@ namespace _24hGame
 				this.Exit();
 
             // TODO: Add your update logic here
+			cursorPosition = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
 			engine.UpdateWorld(gameTime);
             base.Update(gameTime);
         }
@@ -147,6 +148,7 @@ namespace _24hGame
 			spriteBatch.Begin();
 				spriteBatch.Draw(gameGuiBackground, new Vector2(0, 0), Color.White);
 				// Render GUI AFTER this line
+				spriteBatch.Draw(cursorTexture, cursorPosition, Color.White);
 
 				// Render GUI BEFORE this line
 			spriteBatch.End();
