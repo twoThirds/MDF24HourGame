@@ -116,6 +116,7 @@
     <Compile Include="BaseTypes\SoundEffect.cs" />
     <Compile Include="BaseTypes\SoundEffectCollection.cs" />
     <Compile Include="Components\Rooms\Room.cs" />
+    <Compile Include="Components\Weapons\DummyWeaponFactory.cs" />
     <Compile Include="Components\Weapons\Weapon.cs" />
     <Compile Include="Drawable\Doodad.cs" />
     <Compile Include="Drawable\Projectile.cs" />
