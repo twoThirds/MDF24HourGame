@@ -390,17 +390,17 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Textures\Player\gunfire animation\gunfire 1.png">
+    <Compile Include="Textures\Player\weapons\gunfire animation\gunfire 1.png">
       <Name>gunfire 1</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Textures\Player\gunfire animation\gunfire 2.png">
+    <Compile Include="Textures\Player\weapons\gunfire animation\gunfire 2.png">
       <Name>gunfire 2</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Textures\Player\gunfire animation\gunfire 3.png">
+    <Compile Include="Textures\Player\weapons\gunfire animation\gunfire 3.png">
       <Name>gunfire 3</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -605,6 +605,65 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Textures\Player\weapons\turret\turret gun1.png">
+      <Name>turret gun1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Player\weapons\turret\turret gun2.png">
+      <Name>turret gun2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Player\weapons\turret\turret suport.png">
+      <Name>turret suport</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Textures\Player\swing animation\bat\bat1.png">
+      <Name>bat1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Player\swing animation\bat\bat2.png">
+      <Name>bat2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Player\swing animation\bat\bat3.png">
+      <Name>bat3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Player\swing animation\bat\bat4.png">
+      <Name>bat4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Player\swing animation\swing1.png">
+      <Name>swing1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Player\swing animation\swing2.png">
+      <Name>swing2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Player\swing animation\swing3.png">
+      <Name>swing3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Player\swing animation\swing4.png">
+      <Name>swing4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Textures\Player\animation legs\legAnimation.png">
       <Name>legAnimation</Name>
       <Importer>TextureImporter</Importer>
@@ -614,6 +673,13 @@
   <ItemGroup>
     <Compile Include="Textures\Player\animation upper part of the body\unarmed\UnarmedAnimation.png">
       <Name>UnarmedAnimation</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Textures\Player\animation upper part of the body\pistol\PistolAnimation.png">
+      <Name>PistolAnimation</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
