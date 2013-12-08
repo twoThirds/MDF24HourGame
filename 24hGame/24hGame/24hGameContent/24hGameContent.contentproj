@@ -407,43 +407,95 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Textures\Enemies\walking unarmed\zombie1.png">
+    <Compile Include="Textures\Enemies\Zombie\attacking animation\attack1.png">
+      <Name>attack1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Enemies\Zombie\attacking animation\attack2.png">
+      <Name>attack2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Enemies\Zombie\attacking animation\attack3.png">
+      <Name>attack3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Enemies\Zombie\attacking animation\attack4.png">
+      <Name>attack4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Enemies\Zombie\attacking animation\attack5.png">
+      <Name>attack5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Enemies\Zombie\attacking animation\attack6.png">
+      <Name>attack6</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Enemies\Zombie\attacking animation\attack7.png">
+      <Name>attack7</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Enemies\Zombie\attacking animation\attack8.png">
+      <Name>attack8</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Enemies\Zombie\walking animation\zombie1.png">
       <Name>zombie1</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Textures\Enemies\walking unarmed\zombie2.png">
+    <Compile Include="Textures\Enemies\Zombie\walking animation\zombie2.png">
       <Name>zombie2</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Textures\Enemies\walking unarmed\zombie3.png">
+    <Compile Include="Textures\Enemies\Zombie\walking animation\zombie3.png">
       <Name>zombie3</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Textures\Enemies\walking unarmed\zombie4.png">
+    <Compile Include="Textures\Enemies\Zombie\walking animation\zombie4.png">
       <Name>zombie4</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Textures\Enemies\walking unarmed\zombie5.png">
+    <Compile Include="Textures\Enemies\Zombie\walking animation\zombie5.png">
       <Name>zombie5</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Textures\Enemies\walking unarmed\zombie6.png">
+    <Compile Include="Textures\Enemies\Zombie\walking animation\zombie6.png">
       <Name>zombie6</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Textures\Enemies\walking unarmed\zombie7.png">
+    <Compile Include="Textures\Enemies\Zombie\walking animation\zombie7.png">
       <Name>zombie7</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Textures\Enemies\walking unarmed\zombie8.png">
+    <Compile Include="Textures\Enemies\Zombie\walking animation\zombie8.png">
       <Name>zombie8</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Textures\Player\weapons\granade.png">
+      <Name>granade</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Player\weapons\mines.png">
+      <Name>mines</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
