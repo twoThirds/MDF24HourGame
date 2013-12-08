@@ -14,13 +14,13 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
         {
             this.target = target;
         }
-        public void Draw(GameTime gameTime)
+		public override void Draw(GameTime gameTime)
         {
             Texture.Draw(Position);
         }
 
         //returns wether or not its dead
-        public void Update(GameTime gameTime)
+		public override void Update(GameTime gameTime)
         {
             if (target != null)
             {

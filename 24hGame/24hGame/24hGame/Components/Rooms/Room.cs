@@ -27,19 +27,20 @@ namespace _24hGame.Components.Rooms
 		public List<Trap> Traps { get { return traps; } set { traps = value; } }
 		public Player Aplayer { get { return player; } set { player = value; } }
 		public Vector2 RoomSize { get { return roomSize; } set { roomSize = value; } }
-		 public void Initialize(Game1 game)
+		public void Initialize(Game1 game)
 		{
 			//walls (Dumb Entity)
 			//spawners
 			//treasures chests
 			//This should be moved to spawners
 			obstacles = new List<DrawableEntity>();
-			obstacles.Add((DrawableEntity)(new DangerDoor()));
 			enemies = new List<Enemy>();
-			enemies.Add((Enemy)(new Zombie()));
 			Projectiles = new List<Projectile>();
 			roomSize = new Vector2();
 			//dev
+			obstacles.Add((DrawableEntity)(new DangerDoor()));
+			obstacles.Add((DrawableEntity)(new TreasureChest()));
+			enemies.Add((Enemy)(new Zombie()));
 			roomSize.X = game.GraphicsDevice.Viewport.Width;
 			roomSize.Y = game.GraphicsDevice.Viewport.Height;
 			//dev
@@ -89,11 +90,18 @@ namespace _24hGame.Components.Rooms
             for (i = 0; i < enemies.Count; i++)
             {
                 enemies[i].Update(gameTime);
-            }
-            for (i = 0; i < obstacles.Count; i++)
-            {
-                obstacles[i].Update(gameTime);
-            }
+			}
+			for (i = 0; i < obstacles.Count; i++)
+			{
+				obstacles[i].Update(gameTime);
+			}
+			for (i = 0; i < obstacles.Count; i++)
+			{
+				if (obstacles[i].Remove)
+				{
+					obstacles.Remove(obstacles[i]);
+				}
+			}
             if(player != null)
             {
                 gameOver = player.Update(gameTime);

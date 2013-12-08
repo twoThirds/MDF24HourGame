@@ -56,7 +56,7 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
 		{
 			float headingRadian = V2ToRadian(heading);
 			headingRadian -= (float)Math.PI / 2.0f;
-			float aimRadian = V2ToRadian(cursorPosition);
+			float aimRadian = V2ToRadian(cursorPosition -Position);
 			aimRadian -= (float)Math.PI / 2.0f;
             legs.Draw(Position, headingRadian);
 			//
