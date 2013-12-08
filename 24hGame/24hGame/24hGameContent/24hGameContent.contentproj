@@ -685,6 +685,182 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Textures\items\progressbar animation\progressbar 1.png">
+      <Name>progressbar 1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\items\progressbar animation\progressbar 10.png">
+      <Name>progressbar 10</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\items\progressbar animation\progressbar 11.png">
+      <Name>progressbar 11</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\items\progressbar animation\progressbar 12.png">
+      <Name>progressbar 12</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\items\progressbar animation\progressbar 13.png">
+      <Name>progressbar 13</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\items\progressbar animation\progressbar 14.png">
+      <Name>progressbar 14</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\items\progressbar animation\progressbar 15.png">
+      <Name>progressbar 15</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\items\progressbar animation\progressbar 16.png">
+      <Name>progressbar 16</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\items\progressbar animation\progressbar 17.png">
+      <Name>progressbar 17</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\items\progressbar animation\progressbar 18.png">
+      <Name>progressbar 18</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\items\progressbar animation\progressbar 19.png">
+      <Name>progressbar 19</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\items\progressbar animation\progressbar 2.png">
+      <Name>progressbar 2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\items\progressbar animation\progressbar 20.png">
+      <Name>progressbar 20</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\items\progressbar animation\progressbar 21.png">
+      <Name>progressbar 21</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\items\progressbar animation\progressbar 22.png">
+      <Name>progressbar 22</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\items\progressbar animation\progressbar 23.png">
+      <Name>progressbar 23</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\items\progressbar animation\progressbar 24.png">
+      <Name>progressbar 24</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\items\progressbar animation\progressbar 25.png">
+      <Name>progressbar 25</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\items\progressbar animation\progressbar 26.png">
+      <Name>progressbar 26</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\items\progressbar animation\progressbar 27.png">
+      <Name>progressbar 27</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\items\progressbar animation\progressbar 28.png">
+      <Name>progressbar 28</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\items\progressbar animation\progressbar 3.png">
+      <Name>progressbar 3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\items\progressbar animation\progressbar 4.png">
+      <Name>progressbar 4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\items\progressbar animation\progressbar 5.png">
+      <Name>progressbar 5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\items\progressbar animation\progressbar 6.png">
+      <Name>progressbar 6</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\items\progressbar animation\progressbar 7.png">
+      <Name>progressbar 7</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\items\progressbar animation\progressbar 8.png">
+      <Name>progressbar 8</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\items\progressbar animation\progressbar 9.png">
+      <Name>progressbar 9</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Textures\Location\wood theme\doors\danger door frame.png">
+      <Name>danger door frame</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Location\wood theme\doors\danger door.png">
+      <Name>danger door</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Textures\Location\wood theme\doors\danger door frame 1.png">
+      <Name>danger door frame 1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Location\wood theme\doors\danger door frame 2.png">
+      <Name>danger door frame 2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Location\wood theme\doors\danger door frame 3.png">
+      <Name>danger door frame 3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Location\wood theme\doors\danger door frame 4.png">
+      <Name>danger door frame 4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Textures\Player\weapons\pistol-tomten\pistolStill.png">
       <Name>pistolStill</Name>
       <Importer>TextureImporter</Importer>
