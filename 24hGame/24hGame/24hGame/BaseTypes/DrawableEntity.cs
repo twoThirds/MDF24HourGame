@@ -10,10 +10,11 @@ namespace _24hGame.BaseTypes
     public class DrawableEntity : Entity
     {
         Vector2 position;
-        Vector2 originOffset;
-        Vector2 size;
+		Vector2 originOffset;
+		Vector2 size;
         TexturedQuad texture;
         bool interactable;
+		bool remove;
         float interactDistance;
         public virtual void Interact(){}
         public virtual void Load(Game1 game){}
@@ -49,5 +50,10 @@ namespace _24hGame.BaseTypes
             get{return interactDistance;}
             set{interactDistance = value;}
         }
+		public bool Remove
+		{
+			get { return remove; }
+			set { remove = value; }
+		}
     }
 }

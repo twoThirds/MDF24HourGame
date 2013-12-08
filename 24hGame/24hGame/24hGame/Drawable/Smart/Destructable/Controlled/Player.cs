@@ -45,13 +45,13 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
         }
 
 
-		new public void Draw(GameTime gameTime)
+		public override void Draw(GameTime gameTime)
 		{
             float headingRadian = V2ToRadian(heading);
             headingRadian -= (float)Math.PI / 2.0f;
             legs.Draw(Position, headingRadian);
             unarmedTorso.Draw(Position, headingRadian);
-        }
+		}
 
         private float V2ToRadian(Vector2 direction)
         {
@@ -60,7 +60,7 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
 
         Vector2 velocity;
         Vector2 heading;
-        public bool Update(GameTime gameTime)
+		public bool Update(GameTime gameTime)
 		{
             bool dead = false;
 			Vector2 direction = Vector2.Zero;
