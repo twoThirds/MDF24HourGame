@@ -22,6 +22,8 @@ namespace _24hGame
         GraphicsDeviceManager graphics;
 		Texture2D gameGuiBackground;
         SpriteBatch spriteBatch;
+		Texture2D cursorTexture;
+		Vector2 cursorPosition;
 		Engine engine;
 
         public Matrix View
@@ -88,7 +90,7 @@ namespace _24hGame
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+			cursorTexture = Content.Load<Texture2D>("");
 			gameGuiBackground = Content.Load<Texture2D>("gameGuiBackground");
 			debugTexturedQuad = new TexturedQuad();
 			debugTexturedQuad.Texture = Content.Load<Texture2D>("derp");
