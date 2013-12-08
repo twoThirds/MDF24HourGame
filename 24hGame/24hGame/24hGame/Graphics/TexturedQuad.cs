@@ -11,6 +11,7 @@ namespace _24hGame.Graphics
     {
         static Quad quad;
         static BasicEffect quadEffect;
+        static Effect animationEffect;
 		static VertexDeclaration vertexDeclaration;
 		static Game1 game;
         #region StaticConstructor
@@ -23,6 +24,9 @@ namespace _24hGame.Graphics
             quadEffect.View = game.View;
             quadEffect.Projection = game.Projection;
             quadEffect.TextureEnabled = true;
+
+            animationEffect = game.Content.Load<Effect>("Shaders/Basic/AnimatedQuad");
+            animationEffect.CurrentTechnique = animationEffect.Techniques["AnimatedQuad"];
 
 			vertexDeclaration = new VertexDeclaration(new VertexElement[]
                 {
@@ -94,14 +98,31 @@ namespace _24hGame.Graphics
 			}
 		}
 
+        /// <summary>
+        /// Used for rendering a subsection of a texture on a quad, Top, Right, Bottom, Left
+        /// </summary>
+        /// <param name="location"></param>
+        /// <param name="sourceRect">Top, Right, Bottom, Left</param>
+        public void Draw(Vector2 location, Rectangle sourceRect)
+        {
+            Draw(location, sourceRect, rotationRadians);            
+        }
+
         public void Draw(Vector2 location, Rectangle sourceRect, float radians)
         {
             rotationRadians = radians;
             if (texture != null)
             {
-                quadEffect.Texture = texture;
-                quadEffect.World = Matrix.CreateScale(sourceRect.Width, sourceRect.Height, 1) * Matrix.CreateRotationZ(radians) * Matrix.CreateTranslation(new Vector3(location, 0));
-                foreach (EffectPass pass in quadEffect.CurrentTechnique.Passes)
+                animationEffect.Parameters["Texture"].SetValue(texture);
+                animationEffect.Parameters["World"].SetValue(Matrix.CreateScale(sourceRect.Width, sourceRect.Height, 1) * Matrix.CreateRotationZ(radians) * Matrix.CreateTranslation(new Vector3(location, 0)));
+                animationEffect.Parameters["View"].SetValue(game.View);
+                animationEffect.Parameters["Projection"].SetValue(game.Projection);
+
+                animationEffect.Parameters["SheetSize"].SetValue(new Vector2(texture.Width, texture.Height));
+                animationEffect.Parameters["SpriteLocation"].SetValue(new Vector2(sourceRect.X, sourceRect.Y));
+                animationEffect.Parameters["SpriteSize"].SetValue(new Vector2(sourceRect.Width, sourceRect.Height));
+
+                foreach (EffectPass pass in animationEffect.CurrentTechnique.Passes)
                 {
                     pass.Apply();
                     game.GraphicsDevice.DrawUserIndexedPrimitives<VertexPositionNormalTexture>(PrimitiveType.TriangleList, quad.Vertices, 0, 4, quad.Indexes, 0, 2);
@@ -171,13 +192,14 @@ namespace _24hGame.Graphics
             Vertices[3].TextureCoordinate = textureUpperRight;
 
             // Set the index buffer for each vertex, using
-            // clockwise winding
-            Indexes[0] = 0;
+            // counter clockwise winding // Ugly fix..
+            
+            Indexes[0] = 3;
             Indexes[1] = 1;
             Indexes[2] = 2;
             Indexes[3] = 2;
             Indexes[4] = 1;
-            Indexes[5] = 3;
+            Indexes[5] = 0;
         }
     }
 
