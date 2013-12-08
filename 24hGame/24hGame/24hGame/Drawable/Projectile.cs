@@ -16,7 +16,6 @@ namespace _24hGame.Drawable
 		Game1 game;
 		Room containingRoom;
         float projectileWidth; // Used for finding hits
-        TexturedQuad texture;
 
 		public Projectile(Vector2 direction, Game1 game, Room containingRoom)
         {

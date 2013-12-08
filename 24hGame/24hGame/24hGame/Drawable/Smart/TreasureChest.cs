@@ -12,7 +12,6 @@ namespace _24hGame.Drawable.Smart
     class TreasureChest:SmartEntity
 	{
 		bool open;
-		TexturedQuad Texture;
 		public override void Load(Game1 game)
 		{
 			Position = new Vector2(400, 200);
