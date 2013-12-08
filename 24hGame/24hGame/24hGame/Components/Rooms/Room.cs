@@ -11,6 +11,8 @@ using System.IO;
 using System.Xml.Serialization;
 using System.Xml;
 using _24hGame.Drawable.Smart;
+using _24hGame.GameEngine;
+
 namespace _24hGame.Components.Rooms
 {
     public class Room
@@ -28,7 +30,7 @@ namespace _24hGame.Components.Rooms
 		public List<Trap> Traps { get { return traps; } set { traps = value; } }
 		public Player Aplayer { get { return player; } set { player = value; } }
 		public Vector2 RoomSize { get { return roomSize; } set { roomSize = value; } }
-		 public void Initialize(Game1 game)
+		public void Initialize(Game1 game)
 		{
 			//walls (Dumb Entity)
 			//spawners
@@ -101,7 +103,9 @@ namespace _24hGame.Components.Rooms
             }
             
             //Move objects
-            //Check for colisions
+            //Check for, and fix, collisions
+			//Collision.FixCollision(player, )
+
             
             //List<Vector2> corners;
             //Vector2 corner;

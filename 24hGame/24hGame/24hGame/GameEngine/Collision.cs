@@ -9,7 +9,7 @@ namespace _24hGame.GameEngine
 {
 	class Collision
 	{
-		public bool DetectCollision(ControlledEntity e1, DrawableEntity e2)
+		public static void FixCollision(ControlledEntity e1, DrawableEntity e2)
 		{
 			float e1px = e1.Position.X;
 			float e1py = e1.Position.Y;
@@ -22,14 +22,39 @@ namespace _24hGame.GameEngine
 
 			if (((e1px > e2px) && (e1px < (e2px + e2sx))) || (((e1px + e1sx) > e2px) && ((e1px + e1sx) < (e2px + e2sx))))
 			{
-				//entity1 left or right side is within object
+				//entity1 left or right edge is within object left/right edges
 				if (((e1py > e2py) && (e1py < (e2py + e2sy))) || (((e1py + e1sy) > e2py) && ((e1py + e1sy) < (e2py + e2sy))))
 				{
-					//entity1 top or bottom side is also within object
+					//entity1 top or bottom edge is within object top/bottom edges
+					//We officially have collided! Now fix it...
 
+					//if(e1.Velocity.X != 0 && e1.Velocity.Y != 0)
+					//{
+					//	//Diagonally
+					//}
+					///
+					if (e1.Velocity.X > 0)
+					{
+						//Moving Right
+						e1.Position = new Vector2(e2px - e1sx, e1py);
+					}
+					else if (e1.Velocity.X < 0)
+					{
+						//Moving Left
+						e1.Position = new Vector2(e2px + e2sx, e1py);
+					}
+					if (e1.Velocity.Y > 0)
+					{
+						//Moving up
+						e1.Position = new Vector2(e1px, e2py + e2sy);
+					}
+					else if(e1.Velocity.Y < 0)
+					{
+						//Moving left
+						e1.Position = new Vector2(e1px, e2py - e1sy);
+					}
 
-
-					return true;
+					return;
 				}
 			}
 			

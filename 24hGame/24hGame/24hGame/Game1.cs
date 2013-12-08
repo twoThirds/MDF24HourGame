@@ -23,7 +23,6 @@ namespace _24hGame
 		Texture2D gameGuiBackground;
         SpriteBatch spriteBatch;
 		Texture2D cursorTexture;
-		Vector2 cursorPosition;
 		Engine engine;
 
         public Matrix View
@@ -77,7 +76,6 @@ namespace _24hGame
             View = Matrix.CreateLookAt(new Vector3(0, 0, -10), Vector3.Zero, Vector3.Down);
 			Projection = Matrix.CreateOrthographicOffCenter(0, GraphicsDevice.Viewport.Width, -GraphicsDevice.Viewport.Height, 0, 1.0f, 100.0f);
 
-			cursorPosition = new Vector2(0, 0);
 			TexturedQuad.Initialize(this);
             base.Initialize();
         }
@@ -90,7 +88,6 @@ namespace _24hGame
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-			cursorTexture = Content.Load<Texture2D>(@"Textures\ui\aim");
 			gameGuiBackground = Content.Load<Texture2D>("gameGuiBackground");
 			debugTexturedQuad = new TexturedQuad(Content.Load<Texture2D>("debug"));
             animationTest = new SimpleAnimation(Content.Load<Texture2D>("animationtest"), 32);
@@ -121,8 +118,6 @@ namespace _24hGame
 				this.Exit();
 
             // TODO: Add your update logic here
-			cursorPosition.X = Mouse.GetState().X;
-			cursorPosition.Y = Mouse.GetState().Y;
 			engine.UpdateWorld(gameTime);
             base.Update(gameTime);
         }
@@ -149,7 +144,6 @@ namespace _24hGame
 			spriteBatch.Begin();
 				spriteBatch.Draw(gameGuiBackground, new Vector2(0, 0), Color.White);
 				// Render GUI AFTER this line
-				spriteBatch.Draw(cursorTexture, cursorPosition, Color.White);
 
 				// Render GUI BEFORE this line
 			spriteBatch.End();

@@ -24,6 +24,30 @@ namespace _24hGame.Graphics
             set;
         }
 
+        public int FrameCount
+        {
+            get
+            {
+                return animation.Texture.Width / spriteWidth;
+            }
+        }
+
+        public bool FirstFrame
+        {
+            get
+            {
+                return ((int)CurrentFrame) == 0;
+            }
+        }
+
+        public bool LastFrame
+        {
+            get
+            {
+                return ((int)CurrentFrame) == FrameCount;
+            }
+        }
+
         public void Draw(Vector2 location)
         {
             animation.Draw(location, spriteWidth, animation.Texture.Height, spriteWidth * ((int)CurrentFrame % (animation.Texture.Width / spriteWidth)), 0);
