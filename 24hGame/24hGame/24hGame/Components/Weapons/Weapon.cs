@@ -83,7 +83,20 @@ namespace _24hGame.Components.Weapons
             get;
             set;
         }
-        public SoundEffectCollection attackSounds
+        public SoundEffectCollection AttackSounds
+        {
+            get;
+            set;
+        }
+        public float ProjectileVelocity
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// Radian saying how much the shooting will jump around
+        /// </summary>
+        public float WeaponInaccuracy
         {
             get;
             set;
@@ -125,9 +138,10 @@ namespace _24hGame.Components.Weapons
                 int shotsPerFrame = (int)(gameTime.ElapsedGameTime.TotalSeconds / TimePerAttack);
                 while (shotsPerFrame > 0)
                 {
-                    //SpawnProjectile(shotsPerFrame * TimePerAttack);
+                    SpawnProjectile(shotsPerFrame * TimePerAttack, ProjectilesCollection);
                     shotsPerFrame--;
                 }
+                AttackSounds.PlayRandom();
 
                 TimeUntilNextAttack = TimePerAttack;
             }
@@ -137,7 +151,17 @@ namespace _24hGame.Components.Weapons
         private void SpawnProjectile(float headStart, List<Projectile> ProjectilesCollection)
         {
             float shootingAngle = Utility.V2ToAngle(game.Engine.Player.AimingDirection);
-            //Projectile projectile = new Projectile();
+            if(WeaponInaccuracy != 0f)
+            {
+                // Make your aim jump around when you shoot
+                float aimJump = (float)(Game1.Random.NextDouble() * WeaponInaccuracy * 2);
+                aimJump -= WeaponInaccuracy;
+                shootingAngle += aimJump;
+            }
+            Vector2 direction = Utility.AngleToV2(shootingAngle, 1);
+            direction.Normalize();
+            //Projectile projectile = new Projectile(direction, game, game.Engine.Player.Room, ProjectileVelocity);
+            Projectile projectile = new Projectile(direction, game, game.Engine.Player.Room);
 
             //ProjectilesCollection.Add(projectile);
         }
