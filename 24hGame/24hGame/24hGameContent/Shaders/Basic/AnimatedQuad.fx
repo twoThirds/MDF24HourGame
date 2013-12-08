@@ -1,19 +1,22 @@
-float4x4 World;
+// Set at effect load
 float4x4 View;
 float4x4 Projection;
+float4x4 World;
 
+// Set at rendering momement
 texture Texture;
-float4 SourceRectangle;
-float2 AtlasDim;
-float2 ScreenDim;
+
+float2 SheetSize;
+float2 SpriteLocation;
+float2 SpriteSize;
 
 sampler TextureSampler = sampler_state
 {
 	Texture = <Texture>;
 
-	MinFilter = Point;
-	MagFilter = Point;
-	MipFilter = Point;
+	MinFilter = ANISOTROPIC;
+	MagFilter = ANISOTROPIC;
+	MipFilter = LINEAR;
 
 	AddressU = Clamp;
 	AddressV = Clamp;
@@ -37,39 +40,22 @@ VertexShaderOutput VertexShaderFunction(VertexShaderInput input)
 
     float4 worldPosition = mul(input.Position, World);
     float4 viewPosition = mul(worldPosition, View);
+
     output.Position = mul(viewPosition, Projection);
-	output.TextureCoordinates = input.TextureCoordinates;
+	//output.TextureCoordinates.x = ((SpriteSize.x / SheetSize.x) * 1) + (input.TextureCoordinates.x / 3);
+	output.TextureCoordinates.x = ((1 / SheetSize.x) * SpriteLocation.x) + (input.TextureCoordinates.x / (SheetSize.x / SpriteSize.x));
+	output.TextureCoordinates.y = input.TextureCoordinates.y;
+	output.TextureCoordinates = ((1 / SheetSize) * SpriteLocation) + (input.TextureCoordinates / (SheetSize / SpriteSize));
+
     return output;
-}
-
-// Adjust uv coordinates so they use the correct texture from the texture atlas
-float2 CalculateAtlasUV(float2 UV, float4 SourceRectangle)
-{
-	float2 atlasUV;
-
-	atlasUV.x = UV.x * (SourceRectangle.z / AtlasDim.x);	// Scale uv coordinates
-	atlasUV.x += SourceRectangle.x / AtlasDim.x;			// Shift (rectangle offset from left of atlas)
-	atlasUV.y = UV.y * (SourceRectangle.w / AtlasDim.y);
-	atlasUV.y += SourceRectangle.y / AtlasDim.y;
-
-	return atlasUV;
 }
 
 float4 PixelShaderFunction(VertexShaderOutput input) : COLOR0
 {
-	// To tile the texture so that it isn't stretched it must be tiled as a factor of the screen dimensions:
-	// x = ScreenWidth / TextureWidth
-	// y = ScreenHeight / TextureHeight
-	input.TextureCoordinates.x *= ScreenDim.x / SourceRectangle.z;					// Number of tiles per row
-	input.TextureCoordinates.y *= ScreenDim.y / SourceRectangle.w;					// Number of tiles per column
-
-	float2 tile = frac(input.TextureCoordinates);
-	tile = CalculateAtlasUV(tile, SourceRectangle);
-
-	return tex2D(TextureSampler, tile);
+	return tex2D(TextureSampler, input.TextureCoordinates);
 }
 
-technique Technique1
+technique AnimatedQuad
 {
     pass Pass1
     {
