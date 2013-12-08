@@ -28,6 +28,11 @@ namespace _24hGame.Graphics
         {
             animation.Draw(location, spriteWidth, animation.Texture.Height, spriteWidth * ((int)CurrentFrame % (animation.Texture.Width / spriteWidth)), 0);
         }
-        
+
+        public void Draw(Vector2 location, float radians)
+        {
+            animation.Draw(location, spriteWidth, animation.Texture.Height, spriteWidth * ((int)CurrentFrame % (animation.Texture.Width / spriteWidth)), 0, radians);
+        }
+
     }
 }
