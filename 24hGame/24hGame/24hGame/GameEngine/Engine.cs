@@ -8,11 +8,26 @@ using System.Text;
 
 namespace _24hGame.GameEngine
 {
-    class Engine
+    public class Engine
     {
         Level level;
         Player player;
         Game1 game;
+
+        public Player Player
+        {
+            get
+            {
+                return player;
+            }
+        }
+        public Level Level
+        {
+            get
+            {
+                return level;
+            }
+        }
 
         public Engine(Game1 game)
         {
