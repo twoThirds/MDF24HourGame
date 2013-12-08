@@ -14,7 +14,8 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
 	public class Player : ControlledEntity
 	{
         Room room;
-        public Player() {
+        public Player() 
+        {
             Position = new Vector2(100, 100);
             //Texture = new TexturedQuad();
             velocity = Vector2.Zero;
@@ -59,7 +60,29 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
         }
 
         Vector2 velocity;
+        public Vector2 Velocity
+        {
+            get
+            {
+                return velocity;
+            }
+            set
+            {
+                velocity = value;
+            }
+        }
         Vector2 heading;
+        public Vector2 Heading
+        {
+            get
+            {
+                return heading;
+            }
+            set
+            {
+                heading = value;
+            }
+        }
 		public bool Update(GameTime gameTime)
 		{
             bool dead = false;
@@ -119,6 +142,11 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
             {
                 heading = velocity;
                 heading.Normalize();
+            }
+            else
+            { 
+                legs.CurrentFrame = 0;
+                unarmedTorso.CurrentFrame = 4;
             }
 
             Position += velocity;
