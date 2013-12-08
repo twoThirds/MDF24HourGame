@@ -71,7 +71,7 @@ namespace _24hGame
 			engine = new Engine(this);
 			//Takes path to an XML file and loads a level
 
-			engine.Load("D:/placeholder.xml");
+			engine.Initialize("D:/placeholder.xml");
 			//Projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4, 4.0f / 3.0f, 1, 500);
 
             View = Matrix.CreateLookAt(new Vector3(0, 0, -10), Vector3.Zero, Vector3.Down);
