@@ -68,11 +68,24 @@ Content\Textures\Player\death animation\death9.xnb
 Content\Textures\Player\gunfire animation\gunfire 1.xnb
 Content\Textures\Player\gunfire animation\gunfire 2.xnb
 Content\Textures\Player\gunfire animation\gunfire 3.xnb
-Content\Textures\Enemies\walking unarmed\zombie1.xnb
-Content\Textures\Enemies\walking unarmed\zombie2.xnb
-Content\Textures\Enemies\walking unarmed\zombie3.xnb
-Content\Textures\Enemies\walking unarmed\zombie4.xnb
-Content\Textures\Enemies\walking unarmed\zombie5.xnb
-Content\Textures\Enemies\walking unarmed\zombie6.xnb
-Content\Textures\Enemies\walking unarmed\zombie7.xnb
-Content\Textures\Enemies\walking unarmed\zombie8.xnb
+Content\Textures\Enemies\Zombie\attacking animation\attack1.xnb
+Content\Textures\Enemies\Zombie\attacking animation\attack2.xnb
+Content\Textures\Enemies\Zombie\attacking animation\attack3.xnb
+Content\Textures\Enemies\Zombie\attacking animation\attack4.xnb
+Content\Textures\Enemies\Zombie\attacking animation\attack5.xnb
+Content\Textures\Enemies\Zombie\attacking animation\attack6.xnb
+Content\Textures\Enemies\Zombie\attacking animation\attack7.xnb
+Content\Textures\Enemies\Zombie\attacking animation\attack8.xnb
+Content\Textures\Enemies\Zombie\walking animation\zombie1.xnb
+Content\Textures\Enemies\Zombie\walking animation\zombie2.xnb
+Content\Textures\Enemies\Zombie\walking animation\zombie3.xnb
+Content\Textures\Enemies\Zombie\walking animation\zombie4.xnb
+Content\Textures\Enemies\Zombie\walking animation\zombie5.xnb
+Content\Textures\Enemies\Zombie\walking animation\zombie6.xnb
+Content\Textures\Enemies\Zombie\walking animation\zombie7.xnb
+Content\Textures\Enemies\Zombie\walking animation\zombie8.xnb
+Content\Textures\Player\weapons\granade.xnb
+Content\Textures\Player\weapons\mines.xnb
+Content\Textures\ui\aim.xnb
+Content\Textures\items\ammo.xnb
+Content\Textures\ui\pistol bullet.xnb

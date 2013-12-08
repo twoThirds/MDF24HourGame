@@ -37,7 +37,7 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
         }
 
 
-		public void Draw(GameTime gameTime)
+		public override void Draw(GameTime gameTime)
 		{
 			Texture.Draw(Position);
 		}
