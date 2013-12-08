@@ -27,7 +27,7 @@ namespace _24hGame.Components.Rooms
 		public List<Trap> Traps { get { return traps; } set { traps = value; } }
 		public Player Aplayer { get { return player; } set { player = value; } }
 		public Vector2 RoomSize { get { return roomSize; } set { roomSize = value; } }
-		 public void Initialize(Game1 game)
+		public void Initialize(Game1 game)
 		{
 			//walls (Dumb Entity)
 			//spawners

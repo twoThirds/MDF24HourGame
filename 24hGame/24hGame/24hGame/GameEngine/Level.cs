@@ -68,7 +68,7 @@ namespace _24hGame.GameEngine
                 if(rooms[i].Update(gameTime, scroll))
                 {
                     player.Reset();
-                    Load(XMLFileName);
+					Initialize(XMLFileName, player, game);
                 }
             }
         }
