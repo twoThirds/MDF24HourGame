@@ -50,7 +50,7 @@ namespace _24hGame.GameEngine
 		{
 			this.XMLFileName = XMLFileName;
             // comment this line after first time run
-            createXMLfileTemplate(rooms, XMLFileName);
+            //createXMLfileTemplate(rooms, XMLFileName);
             //load stuff
             //DeSerilize(rooms, XMLFileName);
 
