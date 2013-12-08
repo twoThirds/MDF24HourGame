@@ -13,8 +13,8 @@ namespace _24hGame.Drawable
 		{
 		
 		}
-		
-		public void Draw (GameTime gameTime)
+
+		public override void Draw(GameTime gameTime)
 		{
 
 		}
