@@ -116,6 +116,7 @@
     <Compile Include="BaseTypes\SoundEffect.cs" />
     <Compile Include="BaseTypes\SoundEffectCollection.cs" />
     <Compile Include="Components\Rooms\Room.cs" />
+    <Compile Include="Components\Weapons\Weapon.cs" />
     <Compile Include="Drawable\Doodad.cs" />
     <Compile Include="Drawable\Projectile.cs" />
     <Compile Include="Drawable\Smart\DangerDoor.cs" />
@@ -128,7 +129,6 @@
     <Compile Include="Drawable\Smart\SpawnPoint.cs" />
     <Compile Include="Drawable\Smart\TreasureChest.cs" />
     <Compile Include="Drawable\Wall.cs" />
-    <Compile Include="Drawable\WeaponAnimation.cs" />
     <Compile Include="GameEngine\Engine.cs" />
     <Compile Include="GameEngine\Level.cs" />
     <Compile Include="Graphics\Animation.cs" />

@@ -59,30 +59,6 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
             return (float)Math.Atan2(direction.Y, direction.X);
         }
 
-        Vector2 velocity;
-        public Vector2 Velocity
-        {
-            get
-            {
-                return velocity;
-            }
-            set
-            {
-                velocity = value;
-            }
-        }
-        Vector2 heading;
-        public Vector2 Heading
-        {
-            get
-            {
-                return heading;
-            }
-            set
-            {
-                heading = value;
-            }
-        }
 		public bool Update(GameTime gameTime)
 		{
             bool dead = false;
