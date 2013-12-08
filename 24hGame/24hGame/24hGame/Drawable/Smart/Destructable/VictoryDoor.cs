@@ -34,7 +34,6 @@ namespace _24hGame.Drawable.Smart.Destructable
         }
         public void interact()
         {
-
         }
     }
 }

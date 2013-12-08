@@ -9,6 +9,7 @@ using System.Text;
 using System.IO;
 using System.Xml.Serialization;
 using System.Xml;
+using _24hGame.Drawable.Smart;
 namespace _24hGame.Components.Rooms
 {
     public class Room
@@ -35,16 +36,22 @@ namespace _24hGame.Components.Rooms
             obstacles = new List<DrawableEntity>();
             //This should be moved to spawners
             enemies.Add(  (Enemy)( new Zombie() )  );
+            obstacles.Add((DrawableEntity)(new DangerDoor()));
             int i;
             for (i = 0; i < enemies.Count; i++)
             {
                 enemies[i].Load(game);
+            }
+            for (i = 0; i < obstacles.Count; i++)
+            {
+                obstacles[i].Load(game);
             }
             
         }
         public void SetActive(Player player)
         {
             this.player = player;
+            player.Room = this;
             int i;
             for (i = 0; i < enemies.Count; i++)
             {
@@ -68,9 +75,13 @@ namespace _24hGame.Components.Rooms
             {
                 enemies[i].Update(gameTime);
             }
+            for (i = 0; i < obstacles.Count; i++)
+            {
+                obstacles[i].Update(gameTime);
+            }
             if(player != null)
             {
-                gameOver = player.Update(gameTime, this);
+                gameOver = player.Update(gameTime);
             }
             
             //Move objects
@@ -85,6 +96,10 @@ namespace _24hGame.Components.Rooms
             {
                 enemies[i].Draw(gameTime);
             }
+            for (i = 0; i < obstacles.Count; i++)
+            {
+                obstacles[i].Draw(gameTime);
+            }
             if (player != null)
             {
                 player.Draw(gameTime);
@@ -93,15 +108,23 @@ namespace _24hGame.Components.Rooms
         }
         public void Interact()
         {
+            DrawableEntity closest = null;
+            float curDistance, minDistance = 99999;
             int i;
             for (i = 0; i < obstacles.Count; i++)
             {
                 if(obstacles[i].Interactable)
                 {
-                    if (Vector2.Distance(player.Position, obstacles[i].Position) < obstacles[i].InteractDistance)
+                    curDistance = Vector2.Distance(player.Position, obstacles[i].Position);
+                    if (curDistance < obstacles[i].InteractDistance && curDistance < minDistance)
                     {
+                        closest = obstacles[i];
                     }
                 }
+            }
+            if (closest != null)
+            {
+                closest.Interact();
             }
         }
     }

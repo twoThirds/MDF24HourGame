@@ -14,8 +14,6 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
         {
             this.target = target;
         }
-        public virtual void Load(Game1 game)
-        {}
         public void Draw(GameTime gameTime)
         {
             Texture.Draw(Position);

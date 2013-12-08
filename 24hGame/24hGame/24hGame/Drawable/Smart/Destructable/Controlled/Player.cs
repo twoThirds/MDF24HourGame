@@ -13,7 +13,7 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
 {
 	public class Player : ControlledEntity
 	{
-
+        Room room;
         public Player() {
             Position = new Vector2(100, 100);
             Texture = new TexturedQuad();
@@ -42,7 +42,7 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
 			Texture.Draw(Position);
 		}
 
-		public bool Update(GameTime gameTime, Room room)
+		public bool Update(GameTime gameTime)
 		{
             bool dead = false;
 			Vector2 direction = Vector2.Zero;
@@ -67,7 +67,7 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
             {
                 eDown = true;
             }
-            else if (qDown)
+            else if (eDown)
             {
                 eDown = false;
                 room.Interact();
@@ -82,5 +82,11 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
             }
             return dead;
 		}
+
+        public Room Room
+        {
+            get { return room; }
+            set { room = value; }
+        }
 	}
 }

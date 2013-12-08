@@ -59,6 +59,8 @@ namespace _24hGame.GameEngine
             int i;
             for (i = 0; i < rooms.Count; i++)
             {
+                //GAME OVER
+                //If the player is dead reset the game
                 if(rooms[i].Update(gameTime, scroll))
                 {
                     player.Reset();

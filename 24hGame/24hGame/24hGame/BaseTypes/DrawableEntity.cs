@@ -15,6 +15,10 @@ namespace _24hGame.BaseTypes
         TexturedQuad texture;
         bool interactable;
         float interactDistance;
+        public virtual void Interact(){}
+        public virtual void Load(Game1 game){}
+        public virtual void Update(GameTime gameTime) { }
+        public virtual void Draw(GameTime gameTime) { }
         public Vector2 Position
         {
             get{return position;}
@@ -22,21 +26,14 @@ namespace _24hGame.BaseTypes
         }
         public Vector2 Size
         {
-            get
-            {
-                return size;
-            }
-            set
-            {
-                size = value;
-            }
+            get{return size;}
+            set{size = value;}
         }
         public Vector2 OriginOffset
         {
             get{return originOffset;}
             set{originOffset = value;}
         }
-
         public TexturedQuad Texture
         {
             get{return texture;}
