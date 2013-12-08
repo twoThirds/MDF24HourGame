@@ -69,5 +69,10 @@ namespace _24hGame.Components.Weapons
             if (isShooting || shootingAnimation.CurrentFrame != 0)
                 shootingAnimation.Draw(game.Engine.Player.Position + playerOffset);
         }
+
+        public virtual void Update(GameTime gameTime)
+        {
+            //if(!isShooting)
+        }
     }
 }
