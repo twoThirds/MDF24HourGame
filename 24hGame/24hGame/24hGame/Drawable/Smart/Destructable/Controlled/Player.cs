@@ -7,31 +7,41 @@ using _24hGame.BaseTypes;
 using _24hGame.Graphics;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using _24hGame.Components.Rooms;
 
 namespace _24hGame.Drawable.Smart.Destructable.Controlled
 {
-	class Player : ControlledEntity
+	public class Player : ControlledEntity
 	{
+        Room room;
+        public Player() {
+            Position = new Vector2(100, 100);
+            Texture = new TexturedQuad();
+        }
+
+        bool qDown, eDown;
 
 		public void Initialize(Game1 game)
 		{
 			Position = new Vector2(100, 100);
 			Texture = new TexturedQuad();
-			Texture.Texture = game.Content.Load<Texture2D>("derp");
+            Texture.Texture = game.Content.Load<Texture2D>(@"Textures\Player\animation upper part of the body\unarmed\unarmed1");
             HitPoints = 10;
+            qDown = false;
 		}
+
         public void Reset()
         {
             Position = new Vector2(100, 100);
             HitPoints = 10;
         }
 
+
 		public void Draw(GameTime gameTime)
 		{
 			Texture.Draw(Position);
 		}
 
-        //returns wether or not its dead
 		public bool Update(GameTime gameTime)
 		{
             bool dead = false;
@@ -45,7 +55,23 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
             if (Keyboard.GetState().IsKeyDown(Keys.D))
                 direction.X += 1;
             if (Keyboard.GetState().IsKeyDown(Keys.Q))
+            {
+                qDown = true;
+            }
+            else if (qDown)
+            {
+                qDown = false;
                 HitPoints -= 2;
+            }
+            if (Keyboard.GetState().IsKeyDown(Keys.E))
+            {
+                eDown = true;
+            }
+            else if (eDown)
+            {
+                eDown = false;
+                room.Interact();
+            }
 
 			//dev
 			Position += direction;
@@ -56,5 +82,11 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
             }
             return dead;
 		}
+
+        public Room Room
+        {
+            get { return room; }
+            set { room = value; }
+        }
 	}
 }

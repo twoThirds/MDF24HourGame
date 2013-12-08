@@ -7,15 +7,13 @@ using System.Text;
 
 namespace _24hGame.Drawable.Smart.Destructable.Controlled
 {
-    class Enemy : ControlledEntity
+    public class Enemy : ControlledEntity
     {
         public DestructableEntity target;
         public void setTarget(DestructableEntity target)
         {
             this.target = target;
         }
-        public virtual void Load(Game1 game)
-        {}
         public void Draw(GameTime gameTime)
         {
             Texture.Draw(Position);

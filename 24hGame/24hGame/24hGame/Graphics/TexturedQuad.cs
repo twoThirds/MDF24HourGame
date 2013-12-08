@@ -7,7 +7,7 @@ using System.Text;
 
 namespace _24hGame.Graphics
 {
-    class TexturedQuad
+    public class TexturedQuad
     {
         static Quad quad;
         static BasicEffect quadEffect;
@@ -202,5 +202,6 @@ namespace _24hGame.Graphics
             Indexes[5] = 0;
         }
     }
+
 
 }
