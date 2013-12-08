@@ -47,6 +47,12 @@ namespace _24hGame.Drawable
 		{
 			Texture.Draw(Position);
 		}
+
+		public float Velocity
+		{
+			get{return velocity}
+			set{velocity = value}
+		}
     }
 
 }
