@@ -15,12 +15,14 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
 	{
         Room room;
 		Vector2 cursorPosition;
+        Vector2 AimingDirection;
         public Player() 
         {
             Position = new Vector2(100, 100);
             //Texture = new TexturedQuad();
             velocity = Vector2.Zero;
             heading = new Vector2(0, 1);
+            AimingDirection = Vector2.Zero;
         }
 
 		SimpleAnimation unarmedTorso;
@@ -52,10 +54,13 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
 
 		public override void Draw(GameTime gameTime)
 		{
-            float headingRadian = V2ToRadian(heading);
-            headingRadian -= (float)Math.PI / 2.0f;
+			float headingRadian = V2ToRadian(heading);
+			headingRadian -= (float)Math.PI / 2.0f;
+			float aimRadian = V2ToRadian(cursorPosition -Position);
+			aimRadian -= (float)Math.PI / 2.0f;
             legs.Draw(Position, headingRadian);
-            unarmedTorso.Draw(Position, headingRadian);
+			//
+			unarmedTorso.Draw(Position, aimRadian);
 			cursorTexture.Draw(cursorPosition);
 		}
 
@@ -132,6 +137,8 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
                 legs.CurrentFrame = 0;
                 unarmedTorso.CurrentFrame = 4;
             }
+
+            //AimingDirection
 
             Position += velocity;
 

@@ -2,7 +2,6 @@
 using _24hGame.Drawable;
 using _24hGame.Drawable.Smart.Destructable.Controlled;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Design;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +10,6 @@ using System.IO;
 using System.Xml.Serialization;
 using System.Xml;
 using _24hGame.Drawable.Smart;
-using _24hGame.GameEngine;
-
 namespace _24hGame.Components.Rooms
 {
     public class Room
@@ -37,12 +34,13 @@ namespace _24hGame.Components.Rooms
 			//treasures chests
 			//This should be moved to spawners
 			obstacles = new List<DrawableEntity>();
-			obstacles.Add((DrawableEntity)(new DangerDoor()));
 			enemies = new List<Enemy>();
-			enemies.Add((Enemy)(new Zombie()));
 			Projectiles = new List<Projectile>();
 			roomSize = new Vector2();
 			//dev
+			obstacles.Add((DrawableEntity)(new DangerDoor()));
+			obstacles.Add((DrawableEntity)(new TreasureChest()));
+			enemies.Add((Enemy)(new Zombie()));
 			roomSize.X = game.GraphicsDevice.Viewport.Width;
 			roomSize.Y = game.GraphicsDevice.Viewport.Height;
 			//dev
@@ -92,33 +90,25 @@ namespace _24hGame.Components.Rooms
             for (i = 0; i < enemies.Count; i++)
             {
                 enemies[i].Update(gameTime);
-            }
-            for (i = 0; i < obstacles.Count; i++)
-            {
-                obstacles[i].Update(gameTime);
-            }
+			}
+			for (i = 0; i < obstacles.Count; i++)
+			{
+				obstacles[i].Update(gameTime);
+			}
+			for (i = 0; i < obstacles.Count; i++)
+			{
+				if (obstacles[i].Remove)
+				{
+					obstacles.Remove(obstacles[i]);
+				}
+			}
             if(player != null)
             {
                 gameOver = player.Update(gameTime);
             }
             
             //Move objects
-            //Check for, and fix, collisions
-			//Collision.FixCollision(player, )
-
-            
-            //List<Vector2> corners;
-            //Vector2 corner;
-            //corner.X = player.Position.X;
-            //corners.Add(player.Position);
-            //corners.Add(1,0);
-            //RectangleConverter
-
-            //if (player.Position.X)
-            {
-                
-            }
-
+            //Check for colisions
             return gameOver;
         }
         public void Draw(GameTime gameTime, Vector2 scroll)

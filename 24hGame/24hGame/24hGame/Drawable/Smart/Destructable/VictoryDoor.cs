@@ -24,14 +24,11 @@ namespace _24hGame.Drawable.Smart.Destructable
             InteractDistance = 50;
         }
 
-        public void Draw(GameTime gameTime)
+        public override void Draw(GameTime gameTime)
         {
             Texture.Draw(Position);
         }
 
-        public void Update(GameTime gameTime)
-        {
-        }
         public void interact()
         {
         }

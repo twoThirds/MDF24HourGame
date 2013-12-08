@@ -25,6 +25,14 @@ namespace _24hGame
 		Texture2D cursorTexture;
 		Engine engine;
 
+        public Engine Engine
+        {
+            get
+            {
+                return engine;
+            }
+        }
+
         public Matrix View
         {
             get;

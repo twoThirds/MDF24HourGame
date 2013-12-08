@@ -22,7 +22,8 @@ namespace _24hGame.Drawable.Smart
             closedTexture.Texture = game.Content.Load<Texture2D>(@"Textures\Location\wood theme\doors\door frame closed 50");
             Texture = closedTexture;
             open = false;
-            Interactable = true;
+			Interactable = true;
+			Remove = false;
             InteractDistance = 20;
         }
 
