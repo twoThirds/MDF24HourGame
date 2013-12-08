@@ -19,7 +19,7 @@ namespace _24hGame.Drawable
 			this.Position = position;
 			Remove = false;
 			//specific to this sprite
-			Vector2 mySize = new Vector2(10, 10);
+			Vector2 mySize = new Vector2(100, 100);
 			Size = mySize;
 		}
 

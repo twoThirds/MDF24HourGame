@@ -1,6 +1,7 @@
 ﻿using _24hGame.BaseTypes;
 using _24hGame.Drawable;
 using _24hGame.Drawable.Smart.Destructable.Controlled;
+using _24hGame.GameEngine;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,7 @@ namespace _24hGame.Components.Rooms
         public List<Enemy> Enemies { get { return enemies; } set { enemies = value; } }
         public List<Projectile> Projectiles { get { return projectiles; } set { projectiles = value; } }
 		public List<Trap> Traps { get { return traps; } set { traps = value; } }
-		public Player Aplayer { get { return player; } set { player = value; } }
+		public Player Player { get { return player; } set { player = value; } }
 		public Vector2 RoomSize { get { return roomSize; } set { roomSize = value; } }
 		public void Initialize(Game1 game)
 		{
@@ -93,24 +94,25 @@ namespace _24hGame.Components.Rooms
             {
                 enemies[i].Update(gameTime);
 			}
+            if(player != null)
+            {
+                gameOver = player.Update(gameTime);
+            }
 			for (i = 0; i < obstacles.Count; i++)
 			{
 				obstacles[i].Update(gameTime);
-			}
-			for (i = 0; i < obstacles.Count; i++)
-			{
+				//Check and fix collisions
+				if (player != null)
+				{
+					Collision.FixCollision(this.player, obstacles[i]);
+				}
+
 				if (obstacles[i].Remove)
 				{
 					obstacles.Remove(obstacles[i]);
 				}
 			}
-            if(player != null)
-            {
-                gameOver = player.Update(gameTime);
-            }
-            
-            //Move objects
-            //Check for colisions
+
             return gameOver;
         }
         public void Draw(GameTime gameTime, Vector2 scroll)

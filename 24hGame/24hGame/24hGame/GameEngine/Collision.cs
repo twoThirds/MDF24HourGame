@@ -45,15 +45,16 @@ namespace _24hGame.GameEngine
 					}
 					if (e1.Velocity.Y > 0)
 					{
-						//Moving up
-						e1.Position = new Vector2(e1px, e2py + e2sy);
+						//Moving down
+						e1.Position = new Vector2(e1px, e2py - e1sy);
 					}
 					else if(e1.Velocity.Y < 0)
 					{
-						//Moving left
-						e1.Position = new Vector2(e1px, e2py - e1sy);
+						//Moving up
+						e1.Position = new Vector2(e1px, e2py + e2sy);
 					}
 
+					e1.Velocity = new Vector2(0,0);
 					return;
 				}
 			}
@@ -71,7 +72,6 @@ namespace _24hGame.GameEngine
 
 			//c1.Add()
 
-			return true;
         }
 	}
 }

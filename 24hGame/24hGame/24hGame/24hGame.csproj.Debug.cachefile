@@ -1,7 +1,6 @@
 Content\derp.xnb
 Content\large.xnb
 Content\gameGuiBackground.xnb
-Content\Shaders\Basic\AnimatedQuad.xnb
 Content\Textures\Location\wood theme\blockade\blockade 1 9X43.xnb
 Content\Textures\Location\wood theme\blockade\blockade 2 9X43.xnb
 Content\Textures\Location\wood theme\doors\door 30.xnb
@@ -65,9 +64,6 @@ Content\Textures\Player\death animation\death6.xnb
 Content\Textures\Player\death animation\death7.xnb
 Content\Textures\Player\death animation\death8.xnb
 Content\Textures\Player\death animation\death9.xnb
-Content\Textures\Player\gunfire animation\gunfire 1.xnb
-Content\Textures\Player\gunfire animation\gunfire 2.xnb
-Content\Textures\Player\gunfire animation\gunfire 3.xnb
 Content\Textures\Enemies\Zombie\attacking animation\attack1.xnb
 Content\Textures\Enemies\Zombie\attacking animation\attack2.xnb
 Content\Textures\Enemies\Zombie\attacking animation\attack3.xnb
@@ -86,12 +82,11 @@ Content\Textures\Enemies\Zombie\walking animation\zombie7.xnb
 Content\Textures\Enemies\Zombie\walking animation\zombie8.xnb
 Content\Textures\Player\weapons\granade.xnb
 Content\Textures\Player\weapons\mines.xnb
-Content\Textures\ui\aim.xnb
 Content\Textures\items\ammo.xnb
+Content\Textures\ui\aim.xnb
 Content\Textures\ui\pistol bullet.xnb
 Content\debug.xnb
 Content\animationtest.xnb
-Content\Shaders\Basic\AnimatedQuad - Copy.xnb
 Content\Textures\Enemies\Zombie\death animation\death1.xnb
 Content\Textures\Enemies\Zombie\death animation\death10.xnb
 Content\Textures\Enemies\Zombie\death animation\death11.xnb
@@ -106,3 +101,20 @@ Content\Textures\Enemies\Zombie\death animation\death8.xnb
 Content\Textures\Enemies\Zombie\death animation\death9.xnb
 Content\Textures\Player\animation legs\legAnimation.xnb
 Content\Textures\Player\animation upper part of the body\unarmed\UnarmedAnimation.xnb
+Content\Shaders\Basic\AnimatedQuad.xnb
+Content\Shaders\Basic\AnimatedQuad - Copy.xnb
+Content\Textures\Player\weapons\gunfire animation\gunfire 1.xnb
+Content\Textures\Player\weapons\gunfire animation\gunfire 2.xnb
+Content\Textures\Player\weapons\gunfire animation\gunfire 3.xnb
+Content\Textures\Player\weapons\turret\turret gun1.xnb
+Content\Textures\Player\weapons\turret\turret gun2.xnb
+Content\Textures\Player\weapons\turret\turret suport.xnb
+Content\Textures\Player\swing animation\bat\bat1.xnb
+Content\Textures\Player\swing animation\bat\bat2.xnb
+Content\Textures\Player\swing animation\bat\bat3.xnb
+Content\Textures\Player\swing animation\bat\bat4.xnb
+Content\Textures\Player\swing animation\swing1.xnb
+Content\Textures\Player\swing animation\swing2.xnb
+Content\Textures\Player\swing animation\swing3.xnb
+Content\Textures\Player\swing animation\swing4.xnb
+Content\Textures\Player\animation upper part of the body\pistol\PistolAnimation.xnb

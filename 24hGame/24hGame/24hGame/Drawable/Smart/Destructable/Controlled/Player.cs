@@ -20,6 +20,7 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
         {
             Position = new Vector2(100, 100);
             //Texture = new TexturedQuad();
+			Size = new Vector2(16, 16);
             velocity = Vector2.Zero;
             heading = new Vector2(0, 1);
             aimingDirection = Vector2.Zero;
