@@ -1,6 +1,7 @@
 Content\derp.xnb
 Content\large.xnb
 Content\gameGuiBackground.xnb
+Content\Shaders\Basic\AnimatedQuad.xnb
 Content\Textures\Location\wood theme\blockade\blockade 1 9X43.xnb
 Content\Textures\Location\wood theme\blockade\blockade 2 9X43.xnb
 Content\Textures\Location\wood theme\doors\door 30.xnb
@@ -85,10 +86,9 @@ Content\Textures\Enemies\Zombie\walking animation\zombie7.xnb
 Content\Textures\Enemies\Zombie\walking animation\zombie8.xnb
 Content\Textures\Player\weapons\granade.xnb
 Content\Textures\Player\weapons\mines.xnb
-Content\Textures\items\ammo.xnb
 Content\Textures\ui\aim.xnb
+Content\Textures\items\ammo.xnb
 Content\Textures\ui\pistol bullet.xnb
 Content\debug.xnb
 Content\animationtest.xnb
-Content\Shaders\Basic\AnimatedQuad.xnb
 Content\Shaders\Basic\AnimatedQuad - Copy.xnb
