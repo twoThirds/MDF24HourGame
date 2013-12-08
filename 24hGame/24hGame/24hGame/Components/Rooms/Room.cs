@@ -40,6 +40,8 @@ namespace _24hGame.Components.Rooms
 			//dev
 			obstacles.Add((DrawableEntity)(new DangerDoor()));
 			obstacles.Add((DrawableEntity)(new TreasureChest()));
+			Vector2 walPos = new Vector2(200, 100);
+			obstacles.Add((DrawableEntity)(new Wall(game, walPos)));
 			enemies.Add((Enemy)(new Zombie()));
 			roomSize.X = game.GraphicsDevice.Viewport.Width;
 			roomSize.Y = game.GraphicsDevice.Viewport.Height;
