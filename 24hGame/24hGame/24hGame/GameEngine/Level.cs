@@ -27,24 +27,28 @@ namespace _24hGame.GameEngine
             player = new Player();
         }
 
+		public void Initialize(String XMLFileName, Player player, Game1 game)
+		{
+			this.player = player;
+			player.Initialize(game);
+			this.game = game;
+			scroll = new Vector2(0, 0);
+			Load(XMLFileName);
+			rooms.Add(new Room());
+			int i;
+			for (i = 0; i < rooms.Count; i++)
+			{
+				rooms[i].Initialize(game);
+			}
+			//load each room
+			currentRoom = rooms[0];
+			rooms[0].SetActive(player);
 
+		}
         //Takes path to an XML file and loads a level
-        public void Load(String XMLFileName, Player player, Game1 game)
-        {
-            this.player = player;
-            player.Initialize(game);
-            this.XMLFileName = XMLFileName;
-            this.game = game;
-            scroll = new Vector2(0, 0);
-            //load each room
-            rooms.Add(new Room());
-            int i;
-            for (i = 0; i < rooms.Count; i++)
-            {
-                rooms[i].Load(game);
-            }
-            currentRoom = rooms[0];
-            rooms[0].SetActive(player);
+        public void Load(String XMLFileName)
+		{
+			this.XMLFileName = XMLFileName;
             // comment this line after first time run
             //createXMLfileTemplate(rooms, XMLFileName);
             //load stuff
@@ -64,7 +68,7 @@ namespace _24hGame.GameEngine
                 if(rooms[i].Update(gameTime, scroll))
                 {
                     player.Reset();
-                    Load(XMLFileName, player, game);
+                    Load(XMLFileName);
                 }
             }
         }
