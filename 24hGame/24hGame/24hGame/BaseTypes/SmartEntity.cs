@@ -7,6 +7,5 @@ namespace _24hGame.BaseTypes
 {
     public class SmartEntity : DrawableEntity
     {
-        float interactDistance;
     }
 }

@@ -30,12 +30,10 @@ namespace _24hGame.GameEngine
         public void UpdateWorld(GameTime gameTime)
         {
             level.Update(gameTime);
-            player.Draw(gameTime);
         }
         public void RenderWorld(GameTime gameTime)
         {
             level.Draw(gameTime);
-            player.Draw(gameTime);
         }
     }
 }

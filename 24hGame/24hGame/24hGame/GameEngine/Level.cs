@@ -24,12 +24,61 @@ namespace _24hGame.GameEngine
         public Level()
         {
             rooms = new List<Room>();
-            currentRoom = new Room();
             player = new Player();
         }
 
 
-        public void createXMLfileTemplate<T>(T data, string filepath){
+        //Takes path to an XML file and loads a level
+        public void Load(String XMLFileName, Player player, Game1 game)
+        {
+            this.player = player;
+            player.Initialize(game);
+            this.XMLFileName = XMLFileName;
+            this.game = game;
+            scroll = new Vector2(0, 0);
+            //load each room
+            rooms.Add(new Room());
+            int i;
+            for (i = 0; i < rooms.Count; i++)
+            {
+                rooms[i].Load(game);
+            }
+            currentRoom = rooms[0];
+            rooms[0].SetActive(player);
+            // comment this line after first time run
+            //createXMLfileTemplate(rooms, XMLFileName);
+            //load stuff
+            //DeSerilize(rooms, XMLFileName);
+
+        }
+
+
+        public void Update(GameTime gameTime)
+        {
+            //update each room
+            int i;
+            for (i = 0; i < rooms.Count; i++)
+            {
+                //GAME OVER
+                //If the player is dead reset the game
+                if(rooms[i].Update(gameTime, scroll))
+                {
+                    player.Reset();
+                    Load(XMLFileName, player, game);
+                }
+            }
+        }
+        public void Draw(GameTime gameTime)
+        {
+            int i;
+            for(i = 0; i < rooms.Count; i++)
+            {
+                rooms[i].Draw(gameTime, scroll);
+            }
+        }
+
+        public void createXMLfileTemplate<T>(T data, string filepath)
+        {
             Level lvl = new Level();
 
             Serialize(data, filepath);
@@ -37,7 +86,7 @@ namespace _24hGame.GameEngine
 
 
         public void Serialize<T>(T data, string filePath)
-        {           
+        {
             XmlSerializerNamespaces ns = new XmlSerializerNamespaces();
             ns.Add("", "");
 
@@ -46,12 +95,12 @@ namespace _24hGame.GameEngine
 
 
             XmlWriterSettings settings = new XmlWriterSettings();
-            settings.Indent = true;    
+            settings.Indent = true;
             settings.OmitXmlDeclaration = true;
             settings.Encoding = Encoding.ASCII;
             using (TextWriter writer = new StreamWriter(filePath))
             {
-                xmlSerializer.Serialize(writer,data, ns);
+                xmlSerializer.Serialize(writer, data, ns);
             }
         }
 
@@ -66,44 +115,5 @@ namespace _24hGame.GameEngine
             return _data;
         }
 
-        //Takes path to an XML file and loads a level
-        public void Load(String XMLFileName, Player player, Game1 game)
-        {
-            this.player = player;
-            this.XMLFileName = XMLFileName;
-            this.game = game;
-            scroll = new Vector2(0, 0);
-            //load each room
-            // comment this line after first time run
-            createXMLfileTemplate(rooms, XMLFileName);
-            //load stuff
-            DeSerilize(rooms, XMLFileName);
-
-        }
-
-
-        public void Update(GameTime gameTime)
-        {
-            //update each room
-            int i;
-            for (i = 0; i < rooms.Count; i++)
-            {
-                if(rooms[i].Update(gameTime, scroll))
-                {
-                    player.Reset();
-                    Load(XMLFileName, player, game);
-                }
-            }
-            player.Update(gameTime);
-        }
-        public void Draw(GameTime gameTime)
-        {
-            int i;
-            for(i = 0; i < rooms.Count; i++)
-            {
-                rooms[i].Draw(gameTime, scroll);
-            }
-            player.Draw(gameTime);
-        }
     }
 }
