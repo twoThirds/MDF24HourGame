@@ -52,10 +52,13 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
 
 		public override void Draw(GameTime gameTime)
 		{
-            float headingRadian = V2ToRadian(heading);
-            headingRadian -= (float)Math.PI / 2.0f;
+			float headingRadian = V2ToRadian(heading);
+			headingRadian -= (float)Math.PI / 2.0f;
+			float aimRadian = V2ToRadian(cursorPosition);
+			aimRadian -= (float)Math.PI / 2.0f;
             legs.Draw(Position, headingRadian);
-            unarmedTorso.Draw(Position, headingRadian);
+			//
+			unarmedTorso.Draw(Position, aimRadian);
 			cursorTexture.Draw(cursorPosition);
 		}
 
