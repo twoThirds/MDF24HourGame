@@ -8,6 +8,7 @@ using _24hGame.Graphics;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using _24hGame.Components.Rooms;
+using _24hGame.Components.Weapons;
 
 namespace _24hGame.Drawable.Smart.Destructable.Controlled
 {
@@ -24,7 +25,12 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
             velocity = Vector2.Zero;
             heading = new Vector2(0, 1);
             aimingDirection = Vector2.Zero;
+            weapons = new List<Weapon>();
+            currentWeapon = null;
         }
+
+        List<Weapon> weapons;
+        Weapon currentWeapon;
 
         public Vector2 AimingDirection
         {
@@ -38,8 +44,9 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
             }
         }
 
-		SimpleAnimation unarmedTorso;
-		SimpleAnimation legs;
+        SimpleAnimation unarmedTorso;
+        SimpleAnimation pistolTorso;
+        SimpleAnimation legs;
 		SimpleAnimation cursorTexture;
 
         bool qDown, eDown;
@@ -51,8 +58,12 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
 			cursorPosition = new Vector2(0, 0);
 			cursorTexture = new SimpleAnimation(game.Content.Load<Texture2D>(@"Textures\ui\aim"), 13);
             unarmedTorso = new SimpleAnimation(game.Content.Load<Texture2D>(@"Textures\Player\animation upper part of the body\unarmed\UnarmedAnimation"), 32);
+            pistolTorso = new SimpleAnimation(game.Content.Load<Texture2D>(@"Textures\Player\animation upper part of the body\pistol\PistolAnimation"), 32);
             legs = new SimpleAnimation(game.Content.Load<Texture2D>(@"Textures\Player\animation legs\legAnimation"), 32);
             legs.CurrentFrame += 4;
+
+            weapons.Add(DummyWeaponFactory.GeneratePistol(game));
+            currentWeapon = weapons[0];
 
             HitPoints = 10;
             qDown = false;
@@ -73,7 +84,22 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
 			aimRadian -= (float)Math.PI / 2.0f;
             legs.Draw(Position, headingRadian);
 			//
-			unarmedTorso.Draw(Position, aimRadian);
+            if (currentWeapon == null)
+                unarmedTorso.Draw(Position, aimRadian);
+            else
+            {
+                switch(currentWeapon.Grip)
+                {
+                    case Weapon.GripType.Pistol:
+                        pistolTorso.Draw(Position, aimRadian);
+                        break;
+                    default:
+                        unarmedTorso.Draw(Position, aimRadian);
+                        break;
+                }
+                Game1.RenderDebugText(currentWeapon.Description, new Vector2(10, 10), true);
+                currentWeapon.Draw(gameTime);
+            }
 			cursorTexture.Draw(cursorPosition);
 		}
 
@@ -167,7 +193,12 @@ namespace _24hGame.Drawable.Smart.Destructable.Controlled
             {
                 dead = true;
             }
-            return dead;
+
+            int i;
+            for (i = 0; i < weapons.Count; i++)
+                weapons[i].Update(gameTime);
+
+                return dead;
 		}
 
         public Room Room

@@ -19,6 +19,8 @@ namespace _24hGame
     /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
+        static private SpriteBatch staticSpriteBatch;
+        static private SpriteFont debugFont;
         GraphicsDeviceManager graphics;
 		Texture2D gameGuiBackground;
         SpriteBatch spriteBatch;
@@ -96,7 +98,9 @@ namespace _24hGame
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-			gameGuiBackground = Content.Load<Texture2D>("gameGuiBackground");
+            staticSpriteBatch = spriteBatch;
+            debugFont = Content.Load<SpriteFont>(@"SpriteFonts\Debug");
+            gameGuiBackground = Content.Load<Texture2D>("gameGuiBackground");
 			debugTexturedQuad = new TexturedQuad(Content.Load<Texture2D>("debug"));
             animationTest = new SimpleAnimation(Content.Load<Texture2D>("animationtest"), 32);
             // TODO: use this.Content to load your game content here
@@ -128,6 +132,15 @@ namespace _24hGame
             // TODO: Add your update logic here
 			engine.UpdateWorld(gameTime);
             base.Update(gameTime);
+        }
+
+        public static void RenderDebugText(string text, Vector2 location, bool beginAndEndSpriteBatch)
+        {
+            if(beginAndEndSpriteBatch)
+                staticSpriteBatch.Begin(); 
+            staticSpriteBatch.DrawString(debugFont, text, location, Color.White); 
+            if(beginAndEndSpriteBatch)
+                staticSpriteBatch.End(); 
         }
 
         /// <summary>

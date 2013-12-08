@@ -53,6 +53,12 @@ namespace _24hGame.Components.Weapons
             }
         }
 
+        public string Description
+        {
+            get;
+            set;
+        }
+
         public float RateOfFire
         {
             get;
@@ -117,8 +123,11 @@ namespace _24hGame.Components.Weapons
 
         public virtual void Draw(GameTime gameTime)
         {
+            shootingAnimation.Draw(game.Engine.Player.Position + playerOffset, Utility.V2ToAngle(game.Engine.Player.AimingDirection));
             if (isShooting || shootingAnimation.CurrentFrame != 0f)
-                shootingAnimation.Draw(game.Engine.Player.Position + playerOffset);
+                shootingAnimation.Draw(game.Engine.Player.Position + playerOffset, Utility.V2ToAngle(game.Engine.Player.AimingDirection));
+            else
+                idleTexture.Draw(game.Engine.Player.Position + playerOffset, Utility.V2ToAngle(game.Engine.Player.AimingDirection));
         }
 
         public virtual void Update(GameTime gameTime)
@@ -160,10 +169,9 @@ namespace _24hGame.Components.Weapons
             }
             Vector2 direction = Utility.AngleToV2(shootingAngle, 1);
             direction.Normalize();
-            //Projectile projectile = new Projectile(direction, game, game.Engine.Player.Room, ProjectileVelocity);
-            Projectile projectile = new Projectile(direction, game, game.Engine.Player.Room);
+            Projectile projectile = new Projectile(direction, game, game.Engine.Player.Room, ProjectileVelocity);
 
-            //ProjectilesCollection.Add(projectile);
+            ProjectilesCollection.Add(projectile);
         }
     }
 }
