@@ -19,12 +19,14 @@ namespace _24hGame.Components.Rooms
         List<Projectile> projectiles;
         List<Trap> traps;
         Player player;
-        bool active;
+		Vector2 roomSize;
+
         public List<DrawableEntity> Obstacle { get { return obstacles; } set { obstacles = value; } }
         public List<Enemy> Enemies { get { return enemies; } set { enemies = value; } }
         public List<Projectile> Projectiles { get { return projectiles; } set { projectiles = value; } }
-        public List<Trap> Traps { get { return traps; } set { traps = value; } }
-        public Player Aplayer { get { return player; } set { player = value; } }
+		public List<Trap> Traps { get { return traps; } set { traps = value; } }
+		public Player Aplayer { get { return player; } set { player = value; } }
+		public Vector2 RoomSize { get { return roomSize; } set { roomSize = value; } }
 
         public void Load(Game1 game)
         {
@@ -32,11 +34,17 @@ namespace _24hGame.Components.Rooms
             //walls (Dumb Entity)
             //spawners
             //treasures chests
-            enemies = new List<Enemy>();
-            obstacles = new List<DrawableEntity>();
             //This should be moved to spawners
-            enemies.Add(  (Enemy)( new Zombie() )  );
+            obstacles = new List<DrawableEntity>();
             obstacles.Add((DrawableEntity)(new DangerDoor()));
+            enemies = new List<Enemy>();
+            enemies.Add(  (Enemy)( new Zombie() )  );
+            Projectiles = new List<Projectile>();
+			roomSize = new Vector2();
+			//dev
+			roomSize.X = game.GraphicsDevice.Viewport.Width;
+			roomSize.Y = game.GraphicsDevice.Viewport.Height;
+			//dev
             int i;
             for (i = 0; i < enemies.Count; i++)
             {

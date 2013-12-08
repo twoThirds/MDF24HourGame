@@ -77,7 +77,7 @@ namespace _24hGame
             View = Matrix.CreateLookAt(new Vector3(0, 0, -10), Vector3.Zero, Vector3.Down);
 			Projection = Matrix.CreateOrthographicOffCenter(0, GraphicsDevice.Viewport.Width, -GraphicsDevice.Viewport.Height, 0, 1.0f, 100.0f);
 
-
+			cursorPosition = new Vector2(0, 0);
 			TexturedQuad.Initialize(this);
             base.Initialize();
         }
@@ -121,7 +121,8 @@ namespace _24hGame
 				this.Exit();
 
             // TODO: Add your update logic here
-			cursorPosition = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
+			cursorPosition.X = Mouse.GetState().X;
+			cursorPosition.Y = Mouse.GetState().Y;
 			engine.UpdateWorld(gameTime);
             base.Update(gameTime);
         }
